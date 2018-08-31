@@ -96,7 +96,7 @@ Docker [donated the OCI specification to the Linux Foundation in 2015](https://b
 
 3. What is the relationship between containerd and container orchestration systems like Kubernetes and Mesos?
 
-Kubernetes today uses Docker directly. In a future version Kubernetes can implement container support in the Kubelet by implementing it's [Container Runtime Interface](https://github.com/kubernetes/kubernetes/blob/release-1.5/docs/devel/container-runtime-interface.md) using containerd. Mesos and other orchestration engines can leverage containerd for core container runtime functionality as well.
+Kubernetes today uses Docker directly. In a future version Kubernetes can implement container support in the Kubelet by implementing its [Container Runtime Interface](https://github.com/kubernetes/kubernetes/blob/release-1.5/docs/devel/container-runtime-interface.md) using containerd. Mesos and other orchestration engines can leverage containerd for core container runtime functionality as well.
 
 ![Containerd in the container ecosystem](/img/chart-f.png "Containerd in the container ecosystem")
 
