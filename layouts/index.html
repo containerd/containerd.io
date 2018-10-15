@@ -1,3 +1,109 @@
 {{ define "main" }}
-{{ .Content }}
+{{- $subtitle := .Site.Params.subtitle | markdownify }}
+{{- $about    := .Site.Params.about }}
+{{- $logo     := "img/logos/main-logo.png" | relURL }}
+{{- $features := .Site.Params.features }}
+{{- $about    := .Site.Params.about | markdownify }}
+{{- $diagram  := "img/architecture.png" | relURL }}
+<section class="hero has-text-centered is-dark has-shadow">
+  <div class="hero-body">
+    <div class="container">
+      <img src="{{ $logo }}" class="title is-home-logo" alt="containerd hero logo">
+
+      <p class="subtitle is-size-4 is-size-5-mobile">
+        {{ $subtitle }}
+      </p>
+
+      <br />
+
+      <div class="buttons is-centered">
+        <a class="button is-medium is-radiusless is-borderless has-text-weight-bold" href="/docs/getting-started">
+          <span class="icon">
+            <i class="fas fa-sm fa-step-forward"></i>
+          </span>
+          <span>
+            Getting started
+          </span>
+        </a>
+
+        <a class="button is-dark is-outlined is-inverted is-radiusless" href="/docs">
+          <span class="icon">
+            <i class="fas fa-sm fa-info"></i>
+          </span>
+          <span>
+            Docs
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+   <div class="columns is-vcentered">
+     <div class="column is-about-section">
+      <div class="content is-medium">
+        {{ $about }}
+      </div>
+      
+      <hr>
+    </div>
+
+    <div class="column has-text-centered">
+      <a href="{{ $diagram }}">
+        <img src="{{ $diagram }}" class="is-home-diagram" alt="containerd architecture diagram">
+      </a>
+    </div>
+   </div>
+  </div>
+</section>
+
+<section class="section is-grey">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
+          Features
+        </p>
+      </div>
+
+      <div class="column">
+        <ul>
+        {{- range $idx, $feature := $features }}
+        {{- if eq (mod $idx 2) 0 }}
+        <li class="is-size-4 is-size-5-mobile">
+          {{ $feature }}
+        </li>
+        {{- end }}
+        {{- end }}
+        </ul>
+      </div>
+
+      <div class="column">
+        <ul>
+        {{- range $idx, $feature := $features }}
+        {{- if eq (mod $idx 2) 1 }}
+        <li class="is-size-4 is-size-5-mobile">
+          {{ $feature }}
+        </li>
+        {{- end }}
+        {{- end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered">
+  <div class="container">
+    <p class="title is-spaced is-size-4 is-size-5-mobile">
+      containerd is a <a href="https://cncf.io">Cloud Native Computing Foundation</a> member project
+    </p>
+
+    <br />
+
+    <img src="/img/logos/cncf.png" class="is-cncf-logo" alt="Cloud Native Computing Foundation logo">
+  </div>
+</section>
 {{ end }}

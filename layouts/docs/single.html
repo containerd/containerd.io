@@ -1,3 +1,41 @@
 {{ define "main" }}
-<h1>This is a docs page</h1>
+{{- $section := .Section }}
+{{- $pages := where .Site.Pages "Section" "docs" }}
+
+{{ partial "hero.html" . }}
+{{ partial "docs/tabs.html" (dict "pages" $pages "currentUrl" .URL) }}
+
+<article class="is-{{ $section }}-article">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-three-quarters is-full-mobile">
+        <div class="content">
+          <div class="is-hidden-desktop">
+            {{ partial "docs/dropdown.html" . }}
+          </div>
+    
+          <section class="is-inner-content">
+            {{ .Content }}
+          </section>
+        </div>
+      </div>
+
+      <div class="column is-hidden-touch">
+        {{- if .TableOfContents }}
+        <aside class="is-toc-container">
+          <p class="is-size-4 is-toc-title">
+            Table of contents
+          </p>
+
+          <div id="toc">
+            {{ .TableOfContents }}
+          </div>
+        </aside>
+        {{- end }}
+      </div>
+    </div>
+  </div> <!-- .container -->
+</article>
+
+{{ partial "docs/arrow-up.html" . }}
 {{ end }}

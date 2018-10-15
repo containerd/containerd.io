@@ -1,0 +1,14 @@
+<section class="hero is-dark">
+  <div class="container">
+    <div class="hero-body">
+      <p class="title is-size-2 is-size-3 has-text-weight-bold{{ if (isset .Params "description") }} is-spaced{{ end }}">
+        {{ .Title }}
+      </p>
+      {{- with .Params.description }}
+      <p class="subtitle is-size-4 is-size-5-mobile">
+        {{ . | markdownify }}
+      </p>
+      {{- end }}
+    </div>
+  </div>
+</section>

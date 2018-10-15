@@ -1,10 +1,106 @@
+{{- $logo          := "img/logos/footer-logo.png" | relURL }}
+{{- $docs          := where .Site.Pages "Section" "docs" }}
+{{- $year          := now.Year }}
+{{- $twitterHandle := .Site.Params.twitterHandle }}
+{{- $twitterUrl    := printf "https://twitter.com/@%s" $twitterHandle }}
+{{- $githubRepo    := .Site.Params.githubRepo }}
+{{- $githubUrl     := printf "https://github.com/%s" $githubRepo }}
+{{- $slackChannel  := .Site.Params.slackChannel }}
+{{- $projectPages  := where .Site.RegularPages "Section" "" }}
 <div class="footer">
-  <div class="footer-links">
-    <div class="link">
-      <a href="https://github.com/containerd/containerd"><img src="/img/containerd-light-d.png"/></a>
-    </div>
-  </div>
-  <div class="copyright">
-    Copyright (c) 2016-2018 the containerd authors
-  </div>
-</div>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="{{ $logo }}" class="is-footer-logo" alt="containerd footer logo">
+      </div>
+      
+       <div class="column">
+        <span class="is-size-4 is-size-5-mobile">
+          Docs
+        </span>
+
+        <hr class="hr has-background-grey">
+
+        <ul>
+          {{- range $docs }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+
+      <div class="column">
+        <span class="is-size-4 is-size-5-mobile">
+          Project
+        </span>
+
+        <hr class="hr has-background-grey">
+
+        <ul>
+          <li>
+            <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">
+              Code of conduct
+            </a>
+          </li>
+
+          {{- range $projectPages }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+
+      <div class="column">
+        <span class="is-size-4 is-size-5-mobile">
+          Community
+        </span>
+
+        <hr class="hr has-background-grey">
+
+        <div class="buttons">
+          <a class="button has-background-twitter-blue is-borderless has-text-white" href="{{ $twitterUrl }}">
+            <span class="icon">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </span>
+            <span>
+              Twitter
+            </span>
+          </a>
+
+          <a class="button is-borderless has-background-black has-text-white" href="{{ $githubUrl }}">
+            <span class="icon">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </span>
+            <span>
+              GitHub
+            </span>
+          </a>
+
+          <a class="button is-borderless has-background-slack-green has-text-white" href="{{ $slackChannel }}">
+            <span class="icon">
+              <i class="fab fa-slack" aria-hidden="true"></i>
+            </span>
+            <span>
+              Slack
+            </span>
+          </a>
+        </div>
+          
+      </div> <!-- .column -->
+    </div> <!-- .column -->
+
+    <hr class="hr has-background-grey-lighter">
+  </div> <!-- .columns -->
+
+  <div class="container has-text-centered">
+    <p class="has-text-weight-light">
+      &copy; {{ $year }} The containerd authors
+    </p>
+  </div> <!-- .container -->
+</div> <!-- .footer -->

@@ -1,0 +1,38 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "containerd"
+pygmentsUseClasses = true
+pygmentsCodefences = true
+
+[params]
+googleAnalyticsId  = "UA-71407002-1"
+githubRepo         = "containerd/containerd"
+twitterHandle      = "containerd"
+slackChannel       = "https://dockercommunity.slack.com/join/shared_invite/enQtNDM4NjAwNDMyOTUwLWZlMDZmYWRjZjk4Zjc5ZGQ5NWZkOWI1Yjk2NGE3ZWVlYjYxM2VhYjczOWIyZDFhZTE3NTUwZWQzMjhmNGYyZTg"
+sansSerifFont      = "Lato"
+monospaceFont      = "Space Mono"
+fontAwesomeVersion = "5.3.1"
+js = ["jquery-3.3.1", "anchor-4.1.1", "app"]
+subtitle = "An industry-standard container runtime with an emphasis on **simplicity**, **robustness** and **portability**."
+about = "containerd is an industry-standard core container runtime with an emphasis on simplicity, robustness and portability. It is available as a daemon for Linux and Windows, which can manage the complete container lifecycle of its host system: image transfer and storage, container execution and supervision, low-level storage and network attachments, etc."
+features = [
+  "OCI Image Spec support",
+  "OCI Runtime Spec support (aka runC)",
+  "Image push and pull support",
+  "Container runtime and lifecycle support",
+  "Network primitives for creation, modification, and deletion of interfaces",
+  "Management of network namespaces containers to join existing namespaces",
+  "Multi-tenant supported with CAS storage for global images"
+]
+
+[[params.fonts]]
+name = "Raleway"
+sizes = [300,400,600,700]
+
+[[params.fonts]]
+name = "Lato"
+sizes = [300,400,600,700]
+
+[[params.fonts]]
+name = "Space Mono"
+sizes = [300,400,600,700]
