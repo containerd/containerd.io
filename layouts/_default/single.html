@@ -1,3 +1,11 @@
 {{ define "main" }}
-{{ .Content }}
+{{ partial "hero.html" . }}
+
+<article class="is-{{ .Kind }}-article">
+  <div class="container">
+    <div class="content is-inner-content">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
 {{ end }}

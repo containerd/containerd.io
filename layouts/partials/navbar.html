@@ -1,8 +1,90 @@
-<div class="navbar">
-  <div class="name"><a href="/">containerd</a></div>
-  <div class="actions">
-    <div class="link">
-      <a href="https://github.com/containerd/containerd"><img src="/img/containerd-light-d.png"/></a>
-    </div>
-  </div>
-</div>
+{{- $isHome        := .IsHome }}
+{{- $logo          := cond $isHome ("img/logos/navbar-light-logo.png" | relURL) ("img/logos/navbar-dark-logo.png" | relURL) }}
+{{- $docs          := where .Site.Pages "Section" "docs" }}
+{{- $twitterHandle := .Site.Params.twitterHandle }}
+{{- $twitterUrl    := printf "https://twitter.com/@%s" $twitterHandle }}
+{{- $githubRepo    := .Site.Params.githubRepo }}
+{{- $githubUrl     := printf "https://github.com/%s" $githubRepo }}
+{{- $slackChannel  := .Site.Params.slackChannel }}
+{{- $projectPages  := where .Site.RegularPages "Section" "" }}
+<div class="navbar is-fixed-top{{ if $isHome }} is-dark{{ else }} has-shadow{{ end }}">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.BaseURL }}">
+        <img src="{{ $logo }}" alt="containerd navbar logo">
+      </a>
+
+      {{- if not $isHome }}
+      <div class="navbar-item is-docs-title has-text-weight-bold is-hidden-mobile">
+        {{ .Title }}
+      </div>
+      {{- end }}
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div> <!-- .navbar-brand -->
+
+    <div class="navbar-menu" id="navbarMenu">
+      <div class="navbar-end">
+        <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold" href="/docs">
+          <a class="navbar-link">
+            Docs
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            {{- range $docs }}
+            <a class="navbar-item" href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+            {{- end }}
+          </div>
+        </div> <!-- .navbar-item -->
+
+        <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold">
+          <div class="navbar-link">
+            Project
+          </div>
+
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">
+              Code of conduct
+            </a>
+
+            {{- range $projectPages }}
+            <a class="navbar-item" href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+            {{- end }}
+          </div>
+        </div> <!-- .navbar-item -->
+
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button has-background-twitter-blue is-borderless has-text-white" href="{{ $twitterUrl }}">
+                <span class="icon">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </span>
+              </a>
+
+              <a class="button is-borderless has-background-black has-text-white" href="{{ $githubUrl }}">
+                <span class="icon">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </span>
+              </a>
+
+              <a class="button has-background-slack-green is-borderless has-text-white" href="{{ $slackChannel }}">
+                <span class="icon">
+                  <i class="fab fa-slack" aria-hidden="true"></i>
+                </span>
+              </a>
+            </p> <!-- .control -->
+          </div> <!-- .field -->
+        </div> <!-- .navbar-item -->
+      </div> <!-- .navbar-end -->
+    </div> <!-- .navbar-menu -->
+  </div> <!-- .container -->
+</div> <!-- .navbar -->

@@ -1,0 +1,17 @@
+{{- $pages := .pages }}
+{{- $currentUrl := .currentUrl }}
+<nav class="tabs is-hidden-touch">
+  <div class="container">
+    <ul>
+      {{- range $pages }}
+      {{- $title := cond (isset .Params "short") .Params.short .Title }}
+      {{- $isCurrentPage := eq $currentUrl .URL }}
+      <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
+        <a href="{{ .URL }}">
+          {{ $title }}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</nav>
