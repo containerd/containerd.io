@@ -10,4 +10,6 @@ production-build:
 
 preview-build:
 	hugo \
-		--baseURL $(DEPLOY_PRIME_URL)
+		--baseURL $(DEPLOY_PRIME_URL) \
+		--buildDrafts \
+		--buildFuture

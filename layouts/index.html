@@ -1,9 +1,9 @@
 {{ define "main" }}
-{{- $subtitle := .Site.Params.subtitle | markdownify }}
-{{- $about    := .Site.Params.about }}
+{{- $subtitle := .Site.Params.home.subtitle | markdownify }}
+{{- $about    := .Site.Params.home.about }}
 {{- $logo     := "img/logos/main-logo.png" | relURL }}
-{{- $features := .Site.Params.features }}
-{{- $about    := .Site.Params.about | markdownify }}
+{{- $features := .Site.Params.home.features }}
+{{- $about    := .Site.Params.home.about | markdownify }}
 {{- $diagram  := "img/architecture.png" | relURL }}
 <section class="hero has-text-centered is-dark has-shadow">
   <div class="hero-body">
