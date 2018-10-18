@@ -1,4 +1,4 @@
-develop:
+serve:
 	hugo server \
 		--buildDrafts \
 		--buildFuture \
