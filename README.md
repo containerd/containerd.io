@@ -62,9 +62,18 @@ weight: 5
 ---
 ```
 
+> Technically Hugo also supports [JSON](http://json.org/) and [TOML](https://github.com/toml-lang/toml) for metadata, but please use YAML only for the sake of consistency.
+
 Here are some optional parameters:
 
 * A `description` will show up underneath the doc's title at the top of the page. `description`s can be Markdown.
 * If you add `draft: true` to a page's metadata, it will be rendered when you [run the site locally](#running-locally) and in [deploy preview](#deploy-previews) but not on the production site at https://containerd.io. Drafts can be useful for stubbing out and collaborating on documentation content that you want to release at a later date.
 * The `short` parameter determines how the doc appears in the documentation navigation. If you add `short: Clients` to the example client libraries doc, it will show up as `Clients` in the nav.
 
+Here's a YAML metadata example with optional parameters:
+
+```yaml
+---
+
+---
+```
