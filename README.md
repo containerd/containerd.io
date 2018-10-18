@@ -74,6 +74,10 @@ Here's a YAML metadata example with optional parameters:
 
 ```yaml
 ---
-
+title: containerd client libraries
+short: Clients
+weight: 5
+description: Use containerd in conjunction with a variety of programming languages
+draft: true
 ---
 ```
