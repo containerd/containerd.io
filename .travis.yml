@@ -1,0 +1,13 @@
+language: go
+
+go:
+    - 1.11.x
+
+install:
+    - go get -u github.com/vbatts/git-validation
+
+before_script:
+    - pushd ..; git clone https://github.com/containerd/project; popd
+
+script:
+    - DCO_VERBOSITY=-q ../project/script/validate/dco
