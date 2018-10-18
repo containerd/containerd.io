@@ -13,8 +13,11 @@ sansSerifFont      = "Lato"
 monospaceFont      = "Space Mono"
 fontAwesomeVersion = "5.3.1"
 js = ["jquery-3.3.1", "anchor-4.1.1", "app"]
-subtitle = "An industry-standard container runtime with an emphasis on **simplicity**, **robustness** and **portability**."
-about = "containerd is an industry-standard core container runtime with an emphasis on simplicity, robustness and portability. It is available as a daemon for Linux and Windows, which can manage the complete container lifecycle of its host system: image transfer and storage, container execution and supervision, low-level storage and network attachments, etc."
+
+[params.home]
+# These parameters determine the text on the homepage
+subtitle = "An industry-standard container runtime with an emphasis on **simplicity**, **robustness** and **portability**"
+about = "**containerd** is available as a daemon for Linux and Windows. It manages the complete container lifecycle of its host system, from image transfer and storage to container execution and supervision to low-level storage to network attachments and beyond."
 features = [
   "OCI Image Spec support",
   "OCI Runtime Spec support (aka runC)",
@@ -24,10 +27,6 @@ features = [
   "Management of network namespaces containers to join existing namespaces",
   "Multi-tenant supported with CAS storage for global images"
 ]
-
-[[params.fonts]]
-name = "Raleway"
-sizes = [300,400,600,700]
 
 [[params.fonts]]
 name = "Lato"

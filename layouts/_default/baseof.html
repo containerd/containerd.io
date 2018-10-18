@@ -5,7 +5,11 @@
   <head>
     {{ partial "google-analytics.html" . }}
     {{ partial "meta.html" . }}
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <title>
+      {{ block "title" . }}
+      {{ .Site.Title }} &ndash; An industry-standard container runtime with an emphasis on simplicity, robustness and portability
+      {{ end }}
+    </title>
     {{ partial "css.html" . }}
   </head>
 
