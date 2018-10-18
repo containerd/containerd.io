@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{- $section  := .Section }}
+{{- $releases := getJSON "https://api.github.com/repos/containerd/containerd/releases" }}
+{{ partial "hero.html" . }}
+
+<article class="is-{{ $section }}-article">
+  <div class="container">
+    <div class="content">
+      <h2>Releases</h2>
+
+      {{- range $releases }}
+      {{- $tag := .tag_name }}
+      {{- $asset := (index .assets 0).name }}
+      {{- $url := printf "https://github.com/containerd/containerd/releases/download/%s/%s" $tag $asset }}
+
+      <h3>{{ .name }}</h3>
+      <a href="{{ $url }}">
+        {{ $asset }}
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</article>
+{{ end }}

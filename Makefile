@@ -2,8 +2,7 @@ serve:
 	hugo server \
 		--buildDrafts \
 		--buildFuture \
-		--disableFastRender \
-		--ignoreCache
+		--disableFastRender
 
 production-build:
 	hugo
