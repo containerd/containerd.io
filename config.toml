@@ -5,6 +5,7 @@ pygmentsUseClasses = true
 pygmentsCodefences = true
 
 [params]
+description        = "An industry-standard container runtime with an emphasis on simplicity, robustness, and portability"
 googleAnalyticsId  = "UA-71407002-1"
 githubRepo         = "containerd/containerd"
 twitterHandle      = "containerd"
