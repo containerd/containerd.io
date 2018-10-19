@@ -81,3 +81,25 @@ description: Use containerd in conjunction with a variety of programming languag
 draft: true
 ---
 ```
+
+### Admonition blocks
+
+There are five admonition blocks available for the containerd docs:
+
+* `info` (blue)
+* `success` (green)
+* `warning` (yellow)
+* `danger` (red)
+* `requirement` (purple)
+
+To use an admonition block (in this case a success block):
+
+```
+Here is some normal documentation.
+
+{{< success >}}
+And here is a green "success" block
+{{< /success >}}
+```
+
+> You can use Markdown inside of admonition blocks.

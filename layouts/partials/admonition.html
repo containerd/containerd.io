@@ -2,11 +2,11 @@
   <article class="media">
     <div class="media-left">
       <span class="icon">
-        <i class="fas fa-{{ .icon }}"></i>
+        <i class="fas fa-lg fa-{{ .icon }}"></i>
       </span>
     </div>
     <div class="media-content">
-      {{ .content }}
+      {{ .content | markdownify }}
     </div>
   </article>
 </div>
