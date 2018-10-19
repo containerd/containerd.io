@@ -1,36 +1,11 @@
 {{ define "main" }}
 {{- $section  := .Section }}
-{{- $releases := getJSON "https://api.github.com/repos/containerd/containerd/releases" }}
 {{ partial "hero.html" . }}
 
 <article class="is-{{ $section }}-article">
   <div class="container">
-    <div class="content">
-      <h2>Releases</h2>
-
-      {{- range $releases }}
-      {{- $tag    := .tag_name }}
-      {{- $asset  := (index .assets 0).name }}
-      {{- $zipUrl := .zipball_url }}
-      {{- $tarUrl := .tarball_url }}
-      {{- $url := printf "https://github.com/containerd/containerd/releases/download/%s/%s" $tag $asset }}
-
-      <h3>{{ .name }}</h3>
-
-      <div class="buttons">
-        <a class="button is-dark" href="{{ $url }}">
-          {{ $asset }} {{ .latest }}
-        </a>
-
-        <a class="button is-light" href="{{ $zipUrl }}">
-          Source code (<strong>zip</strong>)
-        </a>
-
-        <a class="button is-black" href="{{ $tarUrl }}">
-          Source code (<strong>.tar.gz</strong>)
-        </a>
-      </div>
-      {{- end }}
+    <div class="content is-inner-content">
+      {{ .Content }}
     </div>
   </div>
 </article>

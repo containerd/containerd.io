@@ -1,0 +1,24 @@
+{{- $releases := getJSON "https://api.github.com/repos/containerd/containerd/releases" }}
+{{- range $releases }}
+{{- $tag    := .tag_name }}
+{{- $asset  := (index .assets 0).name }}
+{{- $zipUrl := printf "https://github.com/containerd/containerd/archive/%s.zip" $tag }}
+{{- $tarUrl := printf "https://github.com/containerd/containerd/archive/%s.tar.gz" $tag }}
+{{- $url := printf "https://github.com/containerd/containerd/releases/download/%s/%s" $tag $asset }}
+
+<h3>{{ .name }}</h3>
+
+<div class="buttons">
+  <a class="button is-dark" href="{{ $url }}">
+    Linux tarball
+  </a>
+
+  <a class="button is-light is-outlined is-inverted" href="{{ $zipUrl }}">
+    Source code (<strong>zip</strong>)
+  </a>
+
+  <a class="button is-light is-outlined is-inverted" href="{{ $tarUrl }}">
+    Source code (<strong>.tar.gz</strong>)
+  </a>
+</div>
+{{- end }}

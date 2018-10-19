@@ -28,6 +28,9 @@ features = [
   "Multi-tenant supported with CAS storage for global images"
 ]
 
+[params.versions]
+latest = "1.2.0-rc.2"
+
 [[params.fonts]]
 name = "Lato"
 sizes = [300,400,600,700]
