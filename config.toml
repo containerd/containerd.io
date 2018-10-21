@@ -1,8 +1,10 @@
-baseURL = "/"
+baseURL = "https://containerd.io"
 languageCode = "en-us"
 title = "containerd"
 pygmentsUseClasses = true
 pygmentsCodefences = true
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
 googleAnalyticsId  = "UA-71407002-1"
