@@ -33,6 +33,9 @@ $code-padding: .1rem .4rem
 $hr-height: 1.5px
 
 @import "bulma/sass/utilities/derived-variables"
+
+$colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $colors)
+
 @import "bulma/bulma"
 
 $twitter-blue: #1da1f2
@@ -80,7 +83,10 @@ $slack-green: #74cdb0
 .is-page-article
   margin-top: 2rem
 
-.is-page-article, .is-docs-article
+.is-downloads-article
+  margin-top: 1.5rem
+
+.is-page-article, .is-docs-article, .is-downloads-article
   margin-bottom: 2.5rem
 
   +touch

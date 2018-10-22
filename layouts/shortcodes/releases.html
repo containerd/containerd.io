@@ -1,0 +1,60 @@
+{{- $releasesUrl := "https://api.github.com/repos/containerd/containerd/releases" }}
+{{- $downloadUrl := "https://github.com/containerd/containerd/releases/download" }}
+{{- $releases    := getJSON $releasesUrl }}
+<table>
+  <thead>
+    <tr>
+      <th>
+        Version
+      </th>
+      <th>
+        Downloads
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- range $releases }}
+    {{- $githubUrl   := .html_url }}
+    {{- $tag         := .tag_name }}
+    {{- $asset       := (index .assets 0).name }}
+    {{- $binariesUrl := printf "%s/%s/%s" $downloadUrl $tag $asset }}
+    {{- $zipUrl      := printf "https://github.com/containerd/containerd/archive/%s.zip" $tag }}
+    {{- $tarUrl      := printf "https://github.com/containerd/containerd/archive/%s.tar.gz" $tag }}
+    <tr>
+      <td>
+        <a href="{{ $githubUrl }}">
+          {{ .name }}
+        </a>
+      </td>
+      <td>
+        <div class="buttons">
+          <a class="button is-dark" href="{{ $binariesUrl }}" download>
+            <span class="icon">
+              <i class="fas fa-file-archive"></i>
+            </span>
+            <span>
+              Binaries (<strong>.tar.gz</strong>)
+            </span>
+          </a>
+          <a class="button is-light" href="{{ $zipUrl }}" download>
+            <span class="icon">
+              <i class="fas fa-file-archive"></i>
+            </span>
+            <span>
+              Source (<strong>.zip</strong>)
+            </span>
+          </a>
+          <a class="button is-light" href="{{ $tarUrl }}" download>
+            <span class="icon">
+              <i class="fas fa-file-archive"></i>
+            </span>
+            <span>
+              Source (<strong>.tar.gz</strong>)
+            </span>
+          </a>
+        </div>
+      </td>
+    </tr>
+    {{- end }}
+  </tbody>
+</table>

@@ -19,8 +19,16 @@ If you need to install Go or update your currently installed one, please refer t
 
 ## Starting containerd
 
-You can download one of the latest builds for containerd on the [github releases](https://github.com/containerd/containerd/releases) page and then use your favorite process supervisor to get the daemon started.
-If you are using systemd, we have a `containerd.service` file at the root of the repository that you can use.
+You can download one of the latest source builds for containerd on the [Downloads](/downloads) page and then use your favorite process supervisor to get the daemon started.
+
+To install version {{< latest >}}, for example:
+
+```shell
+wget https://github.com/containerd/containerd/archive/v{{< latest >}}.zip
+unzip v{{< latest >}}.zip
+```
+
+This will extract the containerd source into a `containerd-{{< latest >}}` directory. If you are using systemd, there is a `containerd.service` file at the root of that directory that you can use.
 
 The daemon also uses a configuration file located in `/etc/containerd/config.toml` for specifying daemon level options.
 A sample configuration file looks like this:
