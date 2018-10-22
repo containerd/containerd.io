@@ -1,8 +1,10 @@
-baseURL = "/"
+baseURL = "https://containerd.io"
 languageCode = "en-us"
 title = "containerd"
 pygmentsUseClasses = true
 pygmentsCodefences = true
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
 description        = "An industry-standard container runtime with an emphasis on simplicity, robustness, and portability"
