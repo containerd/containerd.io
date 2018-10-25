@@ -13,7 +13,7 @@ githubRepo         = "containerd/containerd"
 twitterHandle      = "containerd"
 slackChannel       = "https://dockercommunity.slack.com/join/shared_invite/enQtNDM4NjAwNDMyOTUwLWZlMDZmYWRjZjk4Zjc5ZGQ5NWZkOWI1Yjk2NGE3ZWVlYjYxM2VhYjczOWIyZDFhZTE3NTUwZWQzMjhmNGYyZTg"
 sansSerifFont      = "Lato"
-monospaceFont      = "Space Mono"
+monospaceFont      = "Fira Mono"
 fontAwesomeVersion = "5.3.1"
 js = ["jquery-3.3.1", "anchor-4.1.1", "app"]
 
@@ -39,5 +39,5 @@ name = "Lato"
 sizes = [300,400,600,700]
 
 [[params.fonts]]
-name = "Space Mono"
+name = "Fira Mono"
 sizes = [300,400,600,700]

@@ -13,6 +13,10 @@
 @import url({{ $fontsUrl }})
 @import url({{ $fontAwesomeUrl }})
 
+// Project-specific colors and variables
+$twitter-blue: #1da1f2
+$slack-green: #74cdb0
+
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
 
@@ -24,12 +28,8 @@ $navbar-dropdown-radius: none
 $navbar-dropdown-arrow: $grey-light
 $navbar-burger-color: $grey-dark
 $navbar-dropdown-border-top: none
-$code-background: $grey-dark
 $dropdown-item-active-background-color: $grey-dark
-$code: $grey-lighter
-$code-padding: .1rem .4rem
-//$pre-background: $white-bis
-//$pre: $black
+
 $hr-height: 1.5px
 
 @import "bulma/sass/utilities/derived-variables"
@@ -38,8 +38,9 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
 
 @import "bulma/bulma"
 
-$twitter-blue: #1da1f2
-$slack-green: #74cdb0
+.highlight
+  .chroma
+    font-size: 1.2rem
 
 .dropdown
   a
@@ -140,12 +141,6 @@ $slack-green: #74cdb0
     width: 50%
 
 .content
-  pre, .chroma
-    background-color: white
-    border: 1px solid $grey-lighter
-    border-radius: 5px
-    font-size: .8rem
-
   ul, ul li
     list-style-type: square
 
