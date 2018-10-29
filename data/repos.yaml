@@ -1,4 +1,4 @@
-- name: container
+- name: containerd
   description: The main project repo for containerd, including the container runtime
 - name: containerd.io
   description: Assets used to build the containerd website and documentation (i.e. what you're currently reading)
