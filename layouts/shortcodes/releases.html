@@ -1,36 +1,89 @@
 {{- $releasesUrl := "https://api.github.com/repos/containerd/containerd/releases" }}
 {{- $downloadUrl := "https://github.com/containerd/containerd/releases/download" }}
 {{- $releases    := getJSON $releasesUrl }}
+{{- $latest      := .Site.Params.versions.latest }}
 <table>
   <thead>
     <tr>
       <th>
-        Version
+        <span class="is-size-4 is-size-5-mobile">
+          Version
+        </span>
       </th>
       <th>
-        Downloads
+        <span class="is-size-4 is-size-5-mobile">
+          Copy link
+        </span>
+      </th>
+      <th>
+        <span class="is-size-4 is-size-5-mobile">
+          Direct download
+        </span>
       </th>
     </tr>
   </thead>
   <tbody>
     {{- range $releases }}
+    {{- $name        := .name }}
+    {{- $latestTag   := printf "v%s" $latest }}
     {{- $githubUrl   := .html_url }}
     {{- $tag         := .tag_name }}
     {{- $asset       := (index .assets 0).name }}
     {{- $binariesUrl := printf "%s/%s/%s" $downloadUrl $tag $asset }}
     {{- $zipUrl      := printf "https://github.com/containerd/containerd/archive/%s.zip" $tag }}
     {{- $tarUrl      := printf "https://github.com/containerd/containerd/archive/%s.tar.gz" $tag }}
+    {{- $isLatest    := eq $tag $latestTag }}
+
     <tr>
       <td>
-        <a href="{{ $githubUrl }}">
-          {{ .name }}
-        </a>
+        <nav class="level">
+          <div class="level-left">
+            <a href="{{ $githubUrl }}" class="is-size-5 is-size-6-mobile">
+              {{ $name }}
+            </a>
+          </div>
+          {{- if $isLatest }}
+          <div class="level-right">
+            <button class="button is-small is-success">
+              LATEST
+            </button>
+          </div>
+          {{- end }}
+        </nav>
+      </td>
+      <td>
+        <div class="buttons">
+          <a class="button is-dark" data-clipboard-action="copy" data-clipboard-text="{{ $binariesUrl }}">
+            <span class="icon">
+              <i class="fas fa-clipboard-list"></i>
+            </span>
+            <span>
+              Binaries (<strong>.tar.gz</strong>)
+            </span>
+          </a>
+          <a class="button is-light" data-clipboard-action="copy" data-clipboard-text="{{ $zipUrl }}">
+            <span class="icon">
+              <i class="fas fa-clipboard-list"></i>
+            </span>
+            <span>
+              Source (<strong>.zip</strong>)
+            </span>
+          </a>
+          <a class="button is-light" data-clipboard-action="copy" data-clipboard-text="{{ $tarUrl }}">
+            <span class="icon">
+              <i class="fas fa-clipboard-list"></i>
+            </span>
+            <span>
+              Source (<strong>.tar.gz</strong>)
+            </span>
+          </a>
+        </div>
       </td>
       <td>
         <div class="buttons">
           <a class="button is-dark" href="{{ $binariesUrl }}" download>
             <span class="icon">
-              <i class="fas fa-file-archive"></i>
+              <i class="fas fa-arrow-alt-circle-down"></i>
             </span>
             <span>
               Binaries (<strong>.tar.gz</strong>)
@@ -38,7 +91,7 @@
           </a>
           <a class="button is-light" href="{{ $zipUrl }}" download>
             <span class="icon">
-              <i class="fas fa-file-archive"></i>
+              <i class="fas fa-arrow-alt-circle-down"></i>
             </span>
             <span>
               Source (<strong>.zip</strong>)
@@ -46,7 +99,7 @@
           </a>
           <a class="button is-light" href="{{ $tarUrl }}" download>
             <span class="icon">
-              <i class="fas fa-file-archive"></i>
+              <i class="fas fa-arrow-alt-circle-down"></i>
             </span>
             <span>
               Source (<strong>.tar.gz</strong>)
