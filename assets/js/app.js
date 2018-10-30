@@ -6,6 +6,10 @@ function showIfPastThreshold(threshold, element) {
   }
 }
 
+function copyDownloadLinksToClipboard() {
+  const clipboard = new ClipboardJS('.button');
+}
+
 function arrowUp() {
   $('.is-arrow-up').click(function() {
     $('html,body').animate({
@@ -35,20 +39,24 @@ function linkClickOffset() {
 }
 
 function tableOfContents() {
-  const container = $('.is-toc-container');
-  const threshold = container.offset().top - 100;
+  const tocContainerSeclector = '.is-toc-container';
 
-  if ($(document).scrollTop() > threshold) {
-    container.addClass('is-active');
-  }
+  if ($(tocContainerSeclector).length) {
+    const container = $(tocContainerSeclector);
+    const threshold = container.offset().top - 100;
 
-  $(window).on('scroll', function() {
     if ($(document).scrollTop() > threshold) {
       container.addClass('is-active');
-    } else {
-      container.removeClass('is-active');
     }
-  });
+
+    $(window).on('scroll', function() {
+      if ($(document).scrollTop() > threshold) {
+        container.addClass('is-active');
+      } else {
+        container.removeClass('is-active');
+      }
+    });
+  }
 }
 
 function docsDropdown() {
@@ -86,6 +94,7 @@ function navbarBurgerToggle() {
 $(function() {
   console.log("Welcome to the containerd website and documentation!");
 
+  copyDownloadLinksToClipboard();
   linkClickOffset();
   docsNavbarTitleToggle();
   navbarBurgerToggle();
