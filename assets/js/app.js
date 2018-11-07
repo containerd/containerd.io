@@ -1,3 +1,10 @@
+const tippyConfig = {
+  trigger: 'click',
+  content: 'Link copied to clipboard',
+  size: 'large',
+  duration: 500
+}
+
 function showIfPastThreshold(threshold, element) {
   const position = $(document).scrollTop();
 
@@ -7,7 +14,9 @@ function showIfPastThreshold(threshold, element) {
 }
 
 function copyDownloadLinksToClipboard() {
-  const clipboard = new ClipboardJS('.button');
+  const clipboard = new ClipboardJS('.is-clipboard');
+
+  tippy('.is-clipboard', tippyConfig);
 }
 
 function arrowUp() {
