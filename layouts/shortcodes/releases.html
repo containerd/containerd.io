@@ -36,20 +36,17 @@
 
     <tr>
       <td>
-        <nav class="level">
-          <div class="level-left">
-            <a href="{{ $githubUrl }}" class="is-size-5 is-size-6-mobile">
-              {{ $name }}
-            </a>
-          </div>
+        <div class="is-release-version">
+          <a href="{{ $githubUrl }}" class="is-size-5">
+            {{ $name }}
+          </a>
+
           {{- if $isLatest }}
-          <div class="level-right">
-            <button class="button is-small is-success">
-              LATEST
-            </button>
-          </div>
+          <button class="button is-small is-success">
+            LATEST
+          </button>
           {{- end }}
-        </nav>
+        </div>
       </td>
       <td>
         <div class="buttons">
