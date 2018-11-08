@@ -1,6 +1,6 @@
 const tippyConfig={trigger:'click',content:'Link copied to clipboard',size:'large',duration:500}
 function showIfPastThreshold(threshold,element){const position=$(document).scrollTop();if(position>threshold){element.show();}}
-function copyDownloadLinksToClipboard(){const clipboard=new ClipboardJS('.is-clipboard');clipboard.on('success',function(e){const message=`Copied the link ${e.text} to clipboard`;});tippy('.is-clipboard',tippyConfig);}
+function copyDownloadLinksToClipboard(){const clipboard=new ClipboardJS('.is-clipboard');tippy('.is-clipboard',tippyConfig);}
 function arrowUp(){$('.is-arrow-up').click(function(){$('html,body').animate({scrollTop:0},'slow');});}
 function addAnchors(){const selectors='.is-inner-content h2, .is-inner-content h3, .is-inner-content h4';anchors.options={icon:'#'}
 anchors.add(selectors);}
