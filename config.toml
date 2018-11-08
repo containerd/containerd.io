@@ -15,7 +15,7 @@ slackChannel       = "https://join.slack.com/t/dockercommunity/shared_invite/enQ
 sansSerifFont      = "Lato"
 monospaceFont      = "Fira Mono"
 fontAwesomeVersion = "5.3.1"
-js = ["jquery-3.3.1", "anchor-4.1.1", "clipboard-2.0.0", "app"]
+js = ["tippy-3.1.1", "jquery-3.3.1", "anchor-4.1.1", "clipboard-2.0.0", "app"]
 
 [params.home]
 # These parameters determine the text on the homepage
