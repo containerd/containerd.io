@@ -1,10 +1,11 @@
 {{ define "main" }}
-{{- $subtitle := .Site.Params.home.subtitle | markdownify }}
-{{- $about    := .Site.Params.home.about }}
-{{- $logo     := "img/logos/main-logo.png" | relURL }}
-{{- $features := .Site.Params.home.features }}
-{{- $about    := .Site.Params.home.about | markdownify }}
-{{- $diagram  := "img/architecture.png" | relURL }}
+{{- $subtitle     := .Site.Params.home.subtitle | markdownify }}
+{{- $about        := .Site.Params.home.about }}
+{{- $logo         := "img/logos/main-logo.png" | relURL }}
+{{- $features     := .Site.Params.home.features }}
+{{- $about        := .Site.Params.home.about | markdownify }}
+{{- $diagram      := "img/architecture.png" | relURL }}
+{{- $adopterLogos := .Site.Data.adopters }}
 <section class="hero has-text-centered is-dark has-shadow">
   <div class="hero-body">
     <div class="container">
@@ -53,15 +54,15 @@
 <section class="section">
   <div class="container">
    <div class="columns is-vcentered">
-     <div class="column is-about-section">
-      <div class="content is-medium">
+     <div class="column is-4 is-about-section">
+      <div class="is-size-5">
         {{ $about }}
       </div>
       
       <hr>
     </div>
 
-    <div class="column has-text-centered">
+    <div class="column is-8 has-text-centered">
       <a href="{{ $diagram }}">
         <img src="{{ $diagram }}" class="is-home-diagram" alt="containerd architecture diagram">
       </a>
@@ -106,7 +107,26 @@
   </div>
 </section>
 
-<section class="section has-text-centered">
+<section class="section is-adopters-section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
+          Adopters
+        </p>
+      </div>
+
+      <div class="column has-text-centered">
+        {{- range $adopterLogos }}
+        {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
+        <img class="is-adopter-logo" src="{{ $logoUrl }}">
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light-grey has-text-centered is-cncf-section">
   <div class="container">
     <p class="title is-spaced is-size-4 is-size-5-mobile">
       containerd is a <a href="https://cncf.io">Cloud Native Computing Foundation</a> incubating project
