@@ -1,16 +1,24 @@
 - name: IBM Cloud Kubernetes Service
   logo: icks.png
+  url: https://www.ibm.com/cloud/container-service
 - name: Google Kubernetes Engine
-  logo: gke.png
+  logo: gke.svg
+  url: https://cloud.google.com/kubernetes-engine/
 - name: Cloud Foundry
   logo: cloud-foundry.png
+  url: https://www.cloudfoundry.org/
 - name: Alibaba PouchContainer
-  logo: pouch-container.png
+  logo: pouchcontainer.png
+  url: https://pouchcontainer.io/#/
 - name: Eliot
   logo: eliot.png
+  url: https://docs.eliot.run/
 - name: Balena
   logo: balena.svg
+  url: https://github.com/balena-os/balena-engine
 - name: LinuxKit
   logo: linuxkit.svg
+  url: https://github.com/linuxkit/linuxkit
 - name: Docker
   logo: docker.png
+  url: https://github.com/docker/engine
