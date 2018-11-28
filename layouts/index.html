@@ -119,8 +119,8 @@
       <div class="column has-text-centered">
         {{- range $adopterLogos }}
         {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
-        <a href="{{ .url }}" target="_blank">
-          <img class="is-adopter-logo" src="{{ $logoUrl }}">
+        <a href="{{ .url }}" class="is-adopter-logo" target="_blank">
+          <img src="{{ $logoUrl }}">
         </a>
         {{- end }}
       </div>

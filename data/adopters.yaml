@@ -22,3 +22,9 @@
 - name: Docker
   logo: docker.png
   url: https://github.com/docker/engine
+- name: Firecracker
+  logo: firecracker.png
+  url: https://github.com/firecracker-microvm/firecracker
+- name: Kata Containers
+  logo: kata-containers.png
+  url: https://katacontainers.io
