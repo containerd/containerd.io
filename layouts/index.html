@@ -59,7 +59,9 @@
         {{ $about }}
       </div>
       
-      <hr>
+      <br />
+
+      <hr class="short-hr is-black" />
     </div>
 
     <div class="column is-8 has-text-centered">
@@ -78,6 +80,8 @@
         <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
           Features
         </p>
+
+        <hr class="short-hr is-black" />
       </div>
 
       <div class="column">
@@ -114,15 +118,19 @@
         <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
           Adopters
         </p>
+
+        <hr class="short-hr is-black" />
       </div>
 
       <div class="column has-text-centered">
-        {{- range $adopterLogos }}
-        {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
-        <a href="{{ .url }}" class="is-adopter-logo" target="_blank">
-          <img src="{{ $logoUrl }}">
-        </a>
-        {{- end }}
+        <div class="is-logo-box">
+          {{- range $adopterLogos }}
+          {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
+          <a href="{{ .url }}" class="is-adopter-logo" target="_blank">
+            <img src="{{ $logoUrl }}">
+          </a>
+          {{- end }}
+        </div>
       </div>
     </div>
   </div>
