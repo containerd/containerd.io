@@ -1,10 +1,11 @@
 {{ define "main" }}
-{{- $subtitle := .Site.Params.home.subtitle | markdownify }}
-{{- $about    := .Site.Params.home.about }}
-{{- $logo     := "img/logos/main-logo.png" | relURL }}
-{{- $features := .Site.Params.home.features }}
-{{- $about    := .Site.Params.home.about | markdownify }}
-{{- $diagram  := "img/architecture.png" | relURL }}
+{{- $subtitle     := .Site.Params.home.subtitle | markdownify }}
+{{- $about        := .Site.Params.home.about }}
+{{- $logo         := "img/logos/main-logo.png" | relURL }}
+{{- $features     := .Site.Params.home.features }}
+{{- $about        := .Site.Params.home.about | markdownify }}
+{{- $diagram      := "img/architecture.png" | relURL }}
+{{- $adopterLogos := .Site.Data.adopters }}
 <section class="hero has-text-centered is-dark has-shadow">
   <div class="hero-body">
     <div class="container">
@@ -50,7 +51,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="about">
   <div class="container">
    <div class="columns is-vcentered">
      <div class="column is-4 is-about-section">
@@ -58,7 +59,9 @@
         {{ $about }}
       </div>
       
-      <hr>
+      <br />
+
+      <hr class="short-hr is-black" />
     </div>
 
     <div class="column is-8 has-text-centered">
@@ -70,13 +73,15 @@
   </div>
 </section>
 
-<section class="section is-grey">
+<section class="section is-grey" id="features">
   <div class="container">
     <div class="columns">
       <div class="column is-one-quarter">
         <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
           Features
         </p>
+
+        <hr class="short-hr is-black" />
       </div>
 
       <div class="column">
@@ -106,7 +111,32 @@
   </div>
 </section>
 
-<section class="section has-text-centered">
+<section class="section is-adopters-section" id="adopters">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <p class="is-size-3 is-size-4-mobile has-text-weight-semibold">
+          Adopters
+        </p>
+
+        <hr class="short-hr is-black" />
+      </div>
+
+      <div class="column has-text-centered">
+        <div class="is-logo-box">
+          {{- range $adopterLogos }}
+          {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
+          <a href="{{ .url }}" class="is-adopter-logo" target="_blank">
+            <img src="{{ $logoUrl }}">
+          </a>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light-grey has-text-centered is-cncf-section" id="cncf">
   <div class="container">
     <p class="title is-spaced is-size-4 is-size-5-mobile">
       containerd is a <a href="https://cncf.io">Cloud Native Computing Foundation</a> incubating project

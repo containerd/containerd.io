@@ -110,13 +110,6 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
           margin-top: 1rem
           padding-top: 1rem
 
-    .is-about-section
-      hr
-        margin-top: 2rem
-        height: 4px
-        background-color: black
-        width: 10%
-
   .main
     flex: 1
 
@@ -134,12 +127,16 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
   +mobile
     width: 80%
 
-.is-cncf-logo
-  +desktop
-    width: 30%
+.is-cncf-section
+  border-top: 1px solid $grey-light
+  border-bottom: 1px solid $grey-light
 
-  +touch
-    width: 50%
+  .is-cncf-logo
+    +desktop
+      width: 30%
+
+    +touch
+      width: 50%
 
 .content
   ul, ul li
@@ -147,6 +144,13 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
 
   +touch
     margin: 1rem 0
+
+hr.short-hr
+  width: 3rem
+  height: .2rem
+
+  &.is-black
+    background-color: black
 
 .section
   padding: 3rem
@@ -157,6 +161,20 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
 
     .title
       color: $white
+
+.is-adopters-section
+  .is-logo-box
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-wrap: wrap
+
+  .is-adopter-logo
+    img
+      text-align: center
+      max-height: 5rem
+      max-width: 12rem
+      margin: 0 1.5rem 2.5rem 1.5rem
 
 .is-home-diagram
   width: 85%
