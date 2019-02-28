@@ -131,12 +131,26 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
   border-top: 1px solid $grey-light
   border-bottom: 1px solid $grey-light
 
-  .is-cncf-logo
-    +desktop
-      width: 30%
+.section.graduation
+  a
+    color: $dark
+    font-weight: 700
 
-    +touch
-      width: 50%
+  border-bottom: 1px solid $grey-light
+
+.is-graduation-logo
+  +desktop
+    width: 70%
+
+  +touch
+    width: 60%
+
+.is-cncf-logo
+  +desktop
+    width: 30%
+
+  +touch
+    width: 50%
 
 .content
   ul, ul li
