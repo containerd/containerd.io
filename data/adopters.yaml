@@ -28,3 +28,6 @@
 - name: Kata Containers
   logo: kata-containers.png
   url: https://katacontainers.io
+- name: Instana
+  logo: instana.png
+  url: https://www.instana.com
