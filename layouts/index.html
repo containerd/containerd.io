@@ -128,8 +128,10 @@
         <div class="is-logo-box">
           {{- range $adopterLogos }}
           {{- $logoUrl := printf "img/logos/adopters/%s" .logo | relURL }}
+          {{- $imgname2 := split  .logo "."  }}
+          {{- $imgname := index $imgname2 0  }}
           <a href="{{ .url }}" class="is-adopter-logo" target="_blank">
-            <img src="{{ $logoUrl }}">
+            <img src="{{ $logoUrl }}" alt ="{{ $imgname }}" >
           </a>
           {{- end }}
         </div>
