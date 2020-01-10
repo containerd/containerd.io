@@ -1,0 +1,26 @@
+name: Sync-Releases
+
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+
+jobs:
+  update-releasesmd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update dependencies
+        id: vars
+        run: |
+          curl -o content/releases.md https://raw.githubusercontent.com/containerd/containerd/master/RELEASES.md
+          sed -i'' 's,^# Versioning and Release$,---\ntitle: Versioning and release\n---,' content/releases.md
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: keep releases.md in sync with containerd/containerd
+          committer: Phil Estes <estesp@linux.vnet.ibm.com>
+          author: Phil Estes <estesp@linux.vnet.ibm.com>
+          title: Automated RELEASES.md sync update
+          body: This is an auto-generated PR to sync updates in the main containerd project's RELEASES.md file.
+          branch: dep-updates
