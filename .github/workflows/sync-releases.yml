@@ -18,7 +18,10 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: keep releases.md in sync with containerd/containerd
+          commit-message: |
+            keep releases.md in sync with containerd/containerd
+
+            Signed-off-by: Phil Estes <estesp@linux.vnet.ibm.com>
           committer: Phil Estes <estesp@linux.vnet.ibm.com>
           author: Phil Estes <estesp@linux.vnet.ibm.com>
           title: Automated RELEASES.md sync update
