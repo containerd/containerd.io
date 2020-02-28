@@ -103,3 +103,7 @@ And here is a green "success" block
 ```
 
 > You can use Markdown inside of admonition blocks.
+
+## Checking links
+
+To check the site's internal links for 404s and other issues, run `make check-links`. This deletes the `public` directory, builds the production version of the site, and checks the output.

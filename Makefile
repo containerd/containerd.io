@@ -11,8 +11,6 @@ production-build:
 	hugo \
 	--minify
 
-	make check-links
-
 preview-build:
 	hugo \
 		--baseURL $(DEPLOY_PRIME_URL) \
@@ -25,4 +23,4 @@ install-link-checker:
 run-link-checker:
 	bin/htmltest
 
-check-links: install-link-checker run-link-checker
+check-links: clean production-build install-link-checker run-link-checker
