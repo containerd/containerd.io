@@ -173,7 +173,7 @@ containerd versions:
 
 | Component        | Status   | Stabilized Version | Links         |
 |------------------|----------|--------------------|---------------|
-| GRPC API         | Stable   | 1.0                | [api/](api) |
+| GRPC API         | Stable   | 1.0                | [gRPC API](#grpc) |
 | Metrics API      | Stable   | 1.0                | - |
 | Runtime Shim API | Stable   | 1.2                | - |
 | Daemon Config    | Stable   | 1.0			       | - |
@@ -188,7 +188,7 @@ Unless explicitly stated here, components that are called out as unstable or
 not covered may change in a future minor version. Breaking changes to
 "unstable" components will be avoided in patch versions.
 
-### GRPC API
+### GRPC API {#grpc}
 
 The primary product of containerd is the GRPC API. As of the 1.0.0 release, the
 GRPC API will not have any backwards incompatible changes without a _major_
@@ -197,7 +197,7 @@ version jump.
 To ensure compatibility, we have collected the entire GRPC API symbol set into
 a single file. At each _minor_ release of containerd, we will move the current
 `next.pb.txt` file to a file named for the minor version, such as `1.0.pb.txt`,
-enumerating the support services and messages. See [api/](api) for details.
+enumerating the support services and messages.
 
 Note that new services may be added in _minor_ releases. New service methods
 and new fields on messages may be added if they are optional.
