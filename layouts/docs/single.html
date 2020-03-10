@@ -7,7 +7,7 @@ containerd docs &ndash; {{ .Title }}
 {{- $pages := where .Site.Pages "Section" "docs" }}
 
 {{ partial "hero.html" . }}
-{{ partial "docs/tabs.html" (dict "pages" $pages "currentUrl" .URL) }}
+{{ partial "docs/tabs.html" (dict "pages" $pages "currentUrl" .RelPermalink) }}
 
 <article class="is-{{ $section }}-article">
   <div class="container">

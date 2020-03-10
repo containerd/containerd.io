@@ -1,4 +1,4 @@
-{{- $currentUrl := .URL }}
+{{- $currentUrl := .RelPermalink }}
 {{- $docs       := where .Site.Pages "Section" "docs" }}
 <div class="dropdown">
   <div class="dropdown-trigger">
@@ -12,8 +12,8 @@
   <div class="dropdown-menu" id="docs-dropdown-menu" role="menu">
     <div class="dropdown-content">
       {{- range $docs }}
-      {{- $isCurrentPage := eq $currentUrl .URL }}
-      <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .URL }}">
+      {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
+      <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
       {{- end }}

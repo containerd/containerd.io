@@ -7,3 +7,7 @@ node_modules/
 # Hugo-generated assets
 public/
 resources/
+
+# Link checker assets
+bin/
+tmp/

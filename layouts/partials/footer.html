@@ -24,7 +24,7 @@
         <ul>
           {{- range $docs }}
           <li>
-            <a href="{{ .URL }}">
+            <a href="{{ .RelPermalink }}">
               {{ .Title }}
             </a>
           </li>
@@ -48,7 +48,7 @@
 
           {{- range $projectPages }}
           <li>
-            <a href="{{ .URL }}">
+            <a href="{{ .RelPermalink }}">
               {{ .Title }}
             </a>
           </li>

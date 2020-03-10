@@ -5,9 +5,9 @@
     <ul>
       {{- range $pages }}
       {{- $title := cond (isset .Params "short") .Params.short .Title }}
-      {{- $isCurrentPage := eq $currentUrl .URL }}
+      {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
       <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
-        <a href="{{ .URL }}">
+        <a href="{{ .RelPermalink }}">
           {{ $title }}
         </a>
       </li>
