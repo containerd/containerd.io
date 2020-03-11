@@ -15,7 +15,7 @@ jobs:
           curl -o content/releases.md https://raw.githubusercontent.com/containerd/containerd/master/RELEASES.md
           sed -i'' 's,^# Versioning and Release$,---\ntitle: Versioning and release\n---,' content/releases.md
           sed -i'' 's,| \[api/\](api),| \[gRPC API\](#grpc),' content/releases.md
-          sed -i'' 's,See \[api/\](api) for details.,,' content/releases.md
+          sed -i'' 's, See \[api/\](api) for details.,,' content/releases.md
           sed -i'' 's,^### GRPC API,### GRPC API {#grpc},' content/releases.md
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
