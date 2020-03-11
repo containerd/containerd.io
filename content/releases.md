@@ -197,7 +197,7 @@ version jump.
 To ensure compatibility, we have collected the entire GRPC API symbol set into
 a single file. At each _minor_ release of containerd, we will move the current
 `next.pb.txt` file to a file named for the minor version, such as `1.0.pb.txt`,
-enumerating the support services and messages.
+enumerating the support services and messages. 
 
 Note that new services may be added in _minor_ releases. New service methods
 and new fields on messages may be added if they are optional.
