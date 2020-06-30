@@ -17,8 +17,8 @@ For a more comprehensive guide to installing and running containerd, see the [Ge
 To install the binaries for containerd version **{{< latest >}}** (latest), click on the **Binaries (.tar.gz)** button for that version in the [Releases](#releases) table below. That will copy the tarball URL to your clipboard. Use [`wget`](https://www.gnu.org/software/wget/) to download the tarball and untar it.
 
 ```shell
-wget https://github.com/containerd/containerd/releases/download/v{{< latest >}}/containerd-{{< latest >}}.linux-amd64.tar.gz
-tar xvf containerd-{{< latest >}}.linux-amd64.tar.gz
+wget https://github.com/containerd/containerd/releases/download/v{{< latest >}}/containerd-{{< latest >}}-linux-amd64.tar.gz
+tar xvf containerd-{{< latest >}}-linux-amd64.tar.gz
 ```
 
 ## Releases
