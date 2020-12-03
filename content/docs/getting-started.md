@@ -4,37 +4,25 @@ short: Getting started
 weight: 2
 ---
 
-There are many different ways to use containerd:
+There are many different ways to use containerd.
+If you are a developer working on containerd you can use the `ctr` tool to quickly test features and functionality without writing extra code.
+However, if you want to integrate containerd into your project we have an easy to use client package that allows you to work with containerd.
 
-* If you are a developer working on containerd you can use the `ctr` tool to quickly test features and functionality without writing extra code
-* If you want to integrate containerd into your project, you can use a simple client package. In this guide, we will pull and run a Redis server with containerd using that client package.
-
-We will assume that you are running a modern Linux host for this example with a compatible build of `runc`.
-
-{{< info >}}
+In this guide we will pull and run a redis server with containerd using the client package.
+We will assume that you are running a modern linux host for this example with a compatible build of `runc`.
+Please refer to [RUNC.md](/RUNC.md) for the currently supported version of `runc`.
 This project requires Go 1.9.x or above.
-{{< /info >}}
-
-If you need to install Go or update your currently installed one, please refer to [Go installation page](https://golang.org/doc/install).
+If you need to install Go or update your currently installed one, please refer to Go install page at https://golang.org/doc/install.
 
 ## Starting containerd
 
-You can download one of the latest source builds for containerd on the [Downloads](/downloads) page and then use your favorite process supervisor to get the daemon started.
-
-To install version {{< latest >}}, for example:
-
-```shell
-wget https://github.com/containerd/containerd/archive/v{{< latest >}}.zip
-unzip v{{< latest >}}.zip
-```
-
-This will extract the containerd source into a `containerd-{{< latest >}}` directory. If you are using systemd, there is a `containerd.service` file at the root of that directory that you can use.
+You can download one of the latest builds for containerd on the [github releases](https://github.com/containerd/containerd/releases) page and then use your favorite process supervisor to get the daemon started.
+If you are using systemd, we have a `containerd.service` file at the root of the repository that you can use.
 
 The daemon also uses a configuration file located in `/etc/containerd/config.toml` for specifying daemon level options.
 A sample configuration file looks like this:
 
 ```toml
-subreaper = true
 oom_score = -999
 
 [debug]
@@ -444,4 +432,4 @@ redis-server exited with status: 0
 In the end, we really did not write that much code when you use the client package.
 
 I hope this guide helped to get you up and running with containerd.
-Feel free to join the [slack channel](https://dockr.ly/community) if you have any questions and like all things, if you want to help contribute to containerd or this guide, submit a pull request.
+Feel free to join the `#containerd` and `#containerd-dev` slack channels on Cloud Native Computing Foundation's (CNCF) slack - `cloud-native.slack.com` if you have any questions and like all things, if you want to help contribute to containerd or this guide, submit a pull request. [Get Invite to CNCF slack.](https://slack.cncf.io)
