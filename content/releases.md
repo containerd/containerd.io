@@ -271,7 +271,8 @@ to communicate with a container runtime. This interface is used to manage
 container lifecycles and container images. Currently this API is under
 development and unstable across Kubernetes releases. Each Kubernetes release
 only supports a single version of CRI and the CRI plugin only implements a
-single version of CRI.
+single version of CRI. As of Kubernetes v1.21 kubelet may support two versions
+of CRI, the prior version and a current version.
 
 Each _minor_ release will support one version of CRI and at least one version
 of Kubernetes. Once this API is stable, a _minor_ will be compatible with any
