@@ -271,8 +271,7 @@ to communicate with a container runtime. This interface is used to manage
 container lifecycles and container images. Currently this API is under
 development and unstable across Kubernetes releases. Each Kubernetes release
 only supports a single version of CRI and the CRI plugin only implements a
-single version of CRI. As of Kubernetes v1.21 kubelet may support two versions
-of CRI, the prior version and a current version.
+single version of CRI.
 
 Each _minor_ release will support one version of CRI and at least one version
 of Kubernetes. Once this API is stable, a _minor_ will be compatible with any
@@ -297,7 +296,8 @@ The daemon's configuration file, commonly located in `/etc/containerd/config.tom
 is versioned and backwards compatible.  The `version` field in the config
 file specifies the config's version.  If no version number is specified inside
 the config file then it is assumed to be a version 1 config and parsed as such.
-Use `version = 2` to enable version 2 config.
+Please use `version = 2` to enable version 2 config as version 1 has been
+deprecated.
 
 ### Not Covered
 
@@ -327,3 +327,4 @@ The deprecated features are shown in the following table:
 |----------------------------------------------------------------------|---------------------|----------------------------|
 | Runtime V1 API and implementation (`io.containerd.runtime.v1.linux`) | containerd v1.4     | containerd v2.0            |
 | Runc V1 implementation of Runtime V2 (`io.containerd.runc.v1`)       | containerd v1.4     | containerd v2.0            |
+| config.toml `version = 1`                                            | containerd v1.5     | containerd v2.0            |
