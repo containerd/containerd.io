@@ -31,3 +31,12 @@
 - name: Instana
   logo: instana.png
   url: https://www.instana.com
+- name: AWS Fargate
+  logo: fargate.png
+  url: https://aws.amazon.com/fargate
+- name: Amazon Elastic Kubernetes Service (EKS)
+  logo: eks.png
+  url: https://aws.amazon.com/eks
+- name: Bottlerocket
+  logo: bottlerocket.png
+  url: https://aws.amazon.com/bottlerocket
