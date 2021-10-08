@@ -18,7 +18,7 @@ This will run Hugo in "watch" mode. You can open up your browser to http://local
 
 ## Publishing the site
 
-The site is published automatically by Netlify. Whenever changes are merged to the `master` branch, Netlify will build and deploy the site to the https://containerd-io.netlify.com address (which is mapped to the containerd.io address via DNS). The site *cannot be published manually*.
+The site is published automatically by Netlify. Whenever changes are merged to the `main` branch, Netlify will build and deploy the site to the https://containerd-io.netlify.com address (which is mapped to the containerd.io address via DNS). The site *cannot be published manually*.
 
 ## Deploy previews
 
