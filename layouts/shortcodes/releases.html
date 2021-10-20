@@ -1,4 +1,4 @@
-{{- $releasesUrl := "https://api.github.com/repos/containerd/containerd/releases?per_page=100" }}
+{{- $releasesUrl := "https://api.github.com/repos/containerd/containerd/releases?per_page=50&page=1" }}
 {{- $downloadUrl := "https://github.com/containerd/containerd/releases/download" }}
 {{- $releases    := getJSON $releasesUrl }}
 {{- $latest      := .Site.Params.versions.latest }}
