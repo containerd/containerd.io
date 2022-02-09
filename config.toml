@@ -1,4 +1,3 @@
-version = 2
 baseURL = "https://containerd.io"
 languageCode = "en-us"
 title = "containerd"
