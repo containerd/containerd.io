@@ -21,18 +21,24 @@ If you need to install Go or update your currently installed one, please refer t
 
 You can download the latest source build for containerd from the [Downloads](/downloads) page and then use your favorite process supervisor to get the daemon started.
 
-To install version {{< latest >}}, run the following commands to download and unzip the source code on the target machine.
+### Systemd-based distributions
+To install version {{< latest >}} on a distribution with Systemd, run the following commands:
 
 ```shell
-wget https://github.com/containerd/containerd/archive/v{{< latest >}}.zip
-unzip v{{< latest >}}.zip
+wget https://github.com/containerd/containerd/releases/download/v{{< latest >}}/cri-containerd-cni-{{< latest >}}-linux-amd64.tar.gz
+sudo tar --no-overwrite-dir -C / -xzf cri-containerd-cni-{{< latest >}}-linux-amd64.tar.gz
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
 ```
+### Non-Systemd distributions
+> &#x26a0;&#xfe0f; **The directory containerd is extracted to has to be included in your PATH variable!**
 
-This will extract the containerd source code into a `containerd-{{< latest >}}` directory. Afterwards, run the following command to start the containerd service using the `containerd.service` file available at the root of the directory where you extracted the source code. This command also tells systemd to automatically start the containerd service at boot time.
-
+Example:
 ```shell
-sudo systemctl enable --now containerd.service
+wget https://github.com/containerd/containerd/releases/download/v{{< latest >}}/cri-containerd-cni-{{< latest >}}-linux-amd64.tar.gz
+sudo tar --no-overwrite-dir -C /usr/local/containerd -xzf cri-containerd-cni-{{< latest >}}-linux-amd64.tar.gz
 ```
+After extracting containerd, start the `containerd` binary with your desired service manager e.g. `supervisord` or `upstart`.
 
 The daemon also uses a configuration file located in `/etc/containerd/config.toml` for specifying daemon level options.
 The default configuration file looks like this:
