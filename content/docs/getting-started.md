@@ -12,10 +12,10 @@ There are many different ways to use containerd:
 We will assume that you are running a modern Linux host for this example with a compatible build of `runc`.
 
 {{< info >}}
-This project requires Go 1.9.x or above.
+Building this project requires a recent Go version (current minimum is 1.16).
 {{< /info >}}
 
-If you need to install Go or update your currently installed one, please refer to [Go installation page](https://golang.org/doc/install).
+If you need to install or update Go please refer to the [Go install instructions](https://go.dev/doc/install).
 
 ## Starting containerd
 
