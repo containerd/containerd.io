@@ -15,7 +15,7 @@ slackChannel       = "https://slack.containerd.io/"
 sansSerifFont      = "Lato"
 monospaceFont      = "Fira Mono"
 fontAwesomeVersion = "5.3.1"
-js = ["tippy-3.1.1", "jquery-3.3.1", "anchor-4.1.1", "clipboard-2.0.0", "app"]
+js = ["tippy-3.1.1", "jquery-3.6.0", "anchor-4.1.1", "clipboard-2.0.0", "app"]
 
 [params.home]
 # These parameters determine the text on the homepage
