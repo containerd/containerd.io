@@ -21,11 +21,17 @@ serve:
 		--buildFuture \
 		--disableFastRender
 
-production-build:
+public/docs/latest:
+	rm -fr containerd # seems Netlify is caching this directory.
+	git clone --depth 1 https://github.com/containerd/containerd.git containerd
+	mv sphinx/* containerd/docs/
+	sphinx-build containerd/docs public/docs/latest
+
+production-build: public/docs/latest
 	hugo \
 	--minify
 
-preview-build:
+preview-build: public/docs/latest
 	hugo \
 		--baseURL $(DEPLOY_PRIME_URL) \
 		--buildDrafts \
