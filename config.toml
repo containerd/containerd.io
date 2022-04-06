@@ -5,6 +5,7 @@ pygmentsUseClasses = true
 pygmentsCodefences = true
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "taxonomyTerm"]
+theme = "containerd"
 
 [params]
 description        = "An industry-standard container runtime with an emphasis on simplicity, robustness, and portability"
