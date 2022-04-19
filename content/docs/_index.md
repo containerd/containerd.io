@@ -10,7 +10,7 @@ The containerd documentation is currently under construction. Check back soon fo
 
 Welcome to the containerd documentation! This document contains some basic project-level information about containerd.
 
-If you'd like to get started running containerd locally on your machine, see the [Getting started](getting-started) guide.
+If you'd like to get started running containerd locally on your machine, see the [Getting started](https://github.com/containerd/containerd/blob/main/docs/getting-started.md) guide.
 
 ## Repositories
 

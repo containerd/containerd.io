@@ -9,7 +9,7 @@ containerd [releases](#releases) can be downloaded in each of the following ways
 * As a tarball containing the source code
 
 {{< info >}}
-For a more comprehensive guide to installing and running containerd, see the [Getting started](../docs/getting-started) guide.
+For a more comprehensive guide to installing and running containerd, see the [Getting started](https://github.com/containerd/containerd/blob/main/docs/getting-started.md) guide.
 {{< /info >}}
 
 ## Installing binaries
