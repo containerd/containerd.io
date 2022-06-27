@@ -7,15 +7,15 @@
 {{- $githubUrl     := printf "https://github.com/%s" $githubRepo }}
 {{- $slackChannel  := .Site.Params.slackChannel }}
 {{- $projectPages  := where .Site.RegularPages "Section" "" }}
-<div class="navbar is-fixed-top{{ if $isHome }} is-dark{{ else }} has-shadow{{ end }}">
+<div id="mainnav" style="padding:10px" class="navbar is-transparent has-background-pattern is-fixed-top{{ if $isHome }} {{ else }} has-shadow{{ end }}">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL }}">
-        <img src="{{ $logo }}" alt="containerd navbar logo">
+        <img src="{{ $logo }}" alt="containerd navbar logo" style="transform: scale(1.7);">
       </a>
 
       {{- if not $isHome }}
-      <div class="navbar-item is-docs-title has-text-weight-bold is-hidden-mobile">
+      <div class="navbar-item is-docs-title has-text-weight-bold has-text-white is-hidden-mobile">
         {{ .Title }}
       </div>
       {{- end }}
@@ -29,12 +29,12 @@
 
     <div class="navbar-menu" id="navbarMenu">
       <div class="navbar-end">
-        <a class="navbar-item has-text-weight-bold" href="/downloads">
+        <a class="navbar-item has-text-weight-bold has-text-white" href="/downloads">
           Downloads
         </a>
 
         <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold" href="/docs">
-          <a class="navbar-link">
+          <a class="navbar-link has-text-white">
             Docs
           </a>
 
@@ -48,7 +48,7 @@
         </div> <!-- .navbar-item -->
 
         <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold">
-          <div class="navbar-link">
+          <div class="navbar-link has-text-white">
             Project
           </div>
 
@@ -64,7 +64,7 @@
             {{- end }}
 
             <a class="navbar-item" href="https://github.com/cncf/artwork/blob/master/examples/graduated.md#containerd-logos">
-              containerd branding
+              Containerd Branding
             </a>
           </div>
         </div> <!-- .navbar-item -->
@@ -96,3 +96,16 @@
     </div> <!-- .navbar-menu -->
   </div> <!-- .container -->
 </div> <!-- .navbar -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#mainnav");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
