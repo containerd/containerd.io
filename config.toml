@@ -33,7 +33,7 @@ features = [
 ]
 
 [params.versions]
-latest = "1.6.4"
+latest = "1.6.6"
 
 [[params.fonts]]
 name = "Lato"
