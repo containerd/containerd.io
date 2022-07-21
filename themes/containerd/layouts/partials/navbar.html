@@ -1,5 +1,5 @@
 {{- $isHome        := .IsHome }}
-{{- $logo          := cond $isHome ("img/logos/navbar-light-logo.png" | relURL) ("img/logos/navbar-dark-logo.png" | relURL) }}
+{{- $logo          := cond $isHome ("img/logos/navbar-light-logo.png" | relURL) ("img/logos/navbar-light-logo.png" | relURL) }}
 {{- $docs          := where .Site.Pages "Section" "docs" }}
 {{- $twitterHandle := .Site.Params.twitterHandle }}
 {{- $twitterUrl    := printf "https://twitter.com/@%s" $twitterHandle }}
@@ -11,7 +11,7 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL }}">
-        <img src="{{ $logo }}" alt="containerd navbar logo" style="transform: scale(1.7);">
+        <img src="{{ $logo }}" alt="containerd navbar logo" style="transform: scale(1.2);padding-left: 20px;">
       </a>
 
       {{- if not $isHome }}
