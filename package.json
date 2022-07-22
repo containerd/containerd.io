@@ -1,6 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "bulma": "^0.7.1"
+    "bulma": "^0.7.1",
+    "hugo-extended": "0.65.3"
   }
 }

@@ -12,24 +12,24 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+DEPLOY_PRIME_URL?=/
+HUGO?=npx hugo
+
 clean:
-	rm -rf public resources
+	rm -rf public/* resources
 
 serve:
-	hugo server \
-		--buildDrafts \
-		--buildFuture \
-		--disableFastRender
+	$(HUGO) serve -DEF --disableFastRender
+
+build:
+	$(HUGO) --cleanDestinationDir -e dev -DEF
 
 production-build:
-	hugo \
-	--minify
+	$(HUGO) --cleanDestinationDir
+# --minify
 
 preview-build:
-	hugo \
-		--baseURL $(DEPLOY_PRIME_URL) \
-		--buildDrafts \
-		--buildFuture
+	$(HUGO) --cleanDestinationDir -e dev -DEF --baseURL $(DEPLOY_PRIME_URL)
 
 install-link-checker:
 	curl https://raw.githubusercontent.com/wjdp/htmltest/master/godownloader.sh | bash

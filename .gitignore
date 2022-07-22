@@ -11,3 +11,5 @@ resources/
 # Link checker assets
 bin/
 tmp/
+.hugo_build.lock
+package-lock.json
