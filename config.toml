@@ -8,7 +8,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 theme = "containerd"
 
 [params]
-description        = "An industry-standard container runtime with an emphasis on simplicity, robustness, and portability"
+description        = "An industry-standard container runtime with an emphasis on simplicity, robustness, and portability and testing the latest Netlify build image"
 googleAnalyticsId  = "UA-71407002-1"
 githubRepo         = "containerd/containerd"
 twitterHandle      = "containerd"
