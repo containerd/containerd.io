@@ -3,6 +3,7 @@ name: Sync-Releases
 on:
   schedule:
     - cron:  '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
   update-releasesmd:
@@ -18,15 +19,15 @@ jobs:
           sed -i'' 's, See \[api/\](api) for details.,,' content/releases.md
           sed -i'' 's,^### GRPC API,### GRPC API {#grpc},' content/releases.md
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: |
             keep releases.md in sync with containerd/containerd
 
-            Signed-off-by: Phil Estes <estesp@linux.vnet.ibm.com>
-          committer: Phil Estes <estesp@linux.vnet.ibm.com>
-          author: Phil Estes <estesp@linux.vnet.ibm.com>
+            Signed-off-by: Samuel Karp <samuelkarp+automated@google.com>
+          committer: Samuel Karp <samuelkarp@google.com>
+          author: Samuel Karp <samuelkarp+automated@google.com>
           title: Automated RELEASES.md sync update
           body: This is an auto-generated PR to sync updates in the main containerd project's RELEASES.md file.
           branch: dep-updates
