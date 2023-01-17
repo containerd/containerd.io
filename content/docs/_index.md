@@ -14,6 +14,6 @@ If you'd like to get started running containerd locally on your machine, see the
 
 ## Repositories
 
-The containerd project is encapsulated in a variety of [GitHub](https://github.com) repositories:
+The containerd project is encapsulated in a variety of [GitHub](https://github.com) repositories.
 
-{{< repos >}}
+See https://github.com/containerd .
