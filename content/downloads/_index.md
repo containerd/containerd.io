@@ -23,7 +23,7 @@ tar xvf containerd-{{< latest >}}-linux-amd64.tar.gz
 
 ## Releases
 
-The table below lists all available releases of containerd.
+The table below lists recent releases of containerd.
 
 {{< success >}}
 Clicking on the buttons in the **Copy link** column in the middle will copy the URL of the ZIP file or tarball into your clipboard. Clicking on the buttons in the **Direct download** column on the right will initiate a download of the ZIP file or tarball.
