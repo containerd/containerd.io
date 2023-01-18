@@ -42,3 +42,7 @@ sizes = [300,400,600,700]
 [[params.fonts]]
 name = "Fira Mono"
 sizes = [300,400,600,700]
+
+[caches]
+  [caches.getjson]
+    maxAge = "24h"
