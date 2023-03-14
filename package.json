@@ -1,6 +1,6 @@
 {
   "private": true,
   "devDependencies": {
-    "bulma": "^0.7.1"
+    "bulma": "^0.9.4"
   }
 }
