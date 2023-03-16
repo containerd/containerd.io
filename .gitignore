@@ -1,5 +1,6 @@
 # macOS leftovers
 .DS_Store
+.hugo-build.lock
 
 # Node.js-related assets (e.g. for CSS)
 node_modules/

@@ -1,4 +1,4 @@
-{{- $logo          := "img/logos/footer-logo.png" | relURL }}
+{{- $logo          := "/img/logos/navbar-light-logo.png" | relURL }}
 {{- $docs          := where .Site.Pages "Section" "docs" }}
 {{- $year          := now.Year }}
 {{- $twitterHandle := .Site.Params.twitterHandle }}
@@ -7,19 +7,19 @@
 {{- $githubUrl     := printf "https://github.com/%s" $githubRepo }}
 {{- $slackChannel  := .Site.Params.slackChannel }}
 {{- $projectPages  := where .Site.RegularPages "Section" "" }}
-<div class="footer">
+<div class="footer has-background-pattern has-text-white">
   <div class="container">
     <div class="columns">
-      <div class="column">
-        <img src="{{ $logo }}" class="is-footer-logo" alt="containerd footer logo">
+      <div class="column" style="display: flex;justify-content: center;align-items: center;">
+        <img style=" transform:scale(1.2);" src="{{ $logo }}" class="is-footer-logo" alt="containerd footer logo">
       </div>
       
        <div class="column">
-        <span class="is-size-4 is-size-5-mobile">
+        <span class="is-size-4 is-size-5-mobile has-text-weight-bold">
           Docs
         </span>
 
-        <hr class="hr has-background-grey">
+        <hr class="hr  ">
 
         <ul>
           {{- range $docs }}
@@ -33,11 +33,11 @@
       </div>
 
       <div class="column">
-        <span class="is-size-4 is-size-5-mobile">
+        <span class="is-size-4 is-size-5-mobile  has-text-weight-bold">
           Project
         </span>
 
-        <hr class="hr has-background-grey">
+        <hr class="hr  ">
 
         <ul>
           <li>
@@ -57,14 +57,14 @@
       </div>
 
       <div class="column">
-        <span class="is-size-4 is-size-5-mobile">
+        <span class="is-size-4 is-size-5-mobile  has-text-weight-bold">
           Community
         </span>
 
-        <hr class="hr has-background-grey">
+        <hr class="hr  ">
 
         <div class="buttons">
-          <a class="button has-background-twitter-blue is-borderless has-text-white" href="{{ $twitterUrl }}">
+          <a class="button is-normal has-background-twitter-blue is-borderless has-text-white has-text-weight-semibold" href="{{ $twitterUrl }}">
             <span class="icon">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </span>
@@ -73,16 +73,16 @@
             </span>
           </a>
 
-          <a class="button is-borderless has-background-black has-text-white" href="{{ $githubUrl }}">
+          <a class="button is-normal is-borderless has-background-white has-text-black has-text-weight-semibold" href="{{ $githubUrl }}">
             <span class="icon">
-              <i class="fab fa-github" aria-hidden="true"></i>
+              <i style="color:black" class="fab fa-github" aria-hidden="true"></i>
             </span>
             <span>
               GitHub
             </span>
           </a>
 
-          <a class="button is-borderless has-background-slack-green has-text-white" href="{{ $slackChannel }}">
+          <a class="button is-normal is-borderless has-background-slack-green has-text-white has-text-weight-semibold" href="{{ $slackChannel }}">
             <span class="icon">
               <i class="fab fa-slack" aria-hidden="true"></i>
             </span>
@@ -95,19 +95,19 @@
       </div> <!-- .column -->
     </div> <!-- .column -->
 
-    <hr class="hr has-background-grey-lighter">
+    <hr style="background: transparent;" class="hr">
   </div> <!-- .columns -->
 
   <div class="container has-text-centered">
-    <div class="has-text-weight-light">
+    <div class="has-text-weight-normal">
       <p class="is-size-5 is-size-6-mobile">
-        &copy; containerd Authors {{ $year }} | Documentation Distributed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>
+        &copy; containerd Authors {{ $year }} | Documentation Distributed under <a href="https://creativecommons.org/licenses/by/4.0/" class="has-text-white  is-underlined" >CC-BY-4.0</a>
       </p>
 
       <br />
 
       <p>
-        &copy; {{ $year }} The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page.
+        &copy; {{ $year }} The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a class="has-text-white is-underlined" href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page.
       </p>
     </div>
   </div> <!-- .container -->

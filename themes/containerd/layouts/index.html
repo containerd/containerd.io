@@ -6,41 +6,42 @@
 {{- $about        := .Site.Params.home.about | markdownify }}
 {{- $diagram      := "img/architecture.png" | relURL }}
 {{- $adopterLogos := .Site.Data.adopters }}
-<section class="hero has-text-centered is-dark has-shadow">
+<section class="hero has-text-centered has-shadow has-background-pattern">
   <div class="hero-body">
     <div class="container">
       <img src="{{ $logo }}" class="title is-home-logo" alt="containerd hero logo">
 
       <br />
 
-      <p class="subtitle is-size-3 is-size-4-mobile has-text-weight-light">
+      <p class="subtitle is-size-3 is-size-4-mobile has-text-white has-text-weight-light">
         {{ $subtitle }}
       </p>
 
       <br />
 
       <div class="buttons is-centered">
-        <a class="button is-medium is-radiusless is-borderless has-text-weight-bold" href="/docs/getting-started">
+        <a class="button is-medium is-rounded is-borderless has-text-weight-bold" href="/docs/getting-started">
+
           <span class="icon">
-            <i class="fas fa-sm fa-step-forward"></i>
+            <i class="fas fa-sm fa-play"></i>
           </span>
           <span>
             Getting started
           </span>
         </a>
 
-        <a class="button is-dark is-outlined is-inverted is-radiusless" href="/docs">
+        <a class="button is-medium is-info is-rounded has-text-weight-bold" href="/docs">
           <span class="icon">
-            <i class="fas fa-sm fa-info"></i>
+            <i class="fas fa-sm fa-book"></i>
           </span>
           <span>
             Docs
           </span>
         </a>
 
-        <a class="button is-orange is-radiusless" href="/downloads">
+        <a class="button is-medium is-danger is-rounded has-text-weight-bold" href="/downloads">
           <span class="icon">
-            <i class="fas fa-file-download"></i>
+            <i class="fas fa-download"></i>
           </span>
           <span>
             Downloads
@@ -75,7 +76,7 @@
   </div>
 </section>
 
-<section class="section is-grey" id="features">
+<section class="section has-background-pattern has-text-white" id="features">
   <div class="container">
     <div class="columns">
       <div class="column is-one-quarter">
@@ -83,7 +84,7 @@
           Features
         </p>
 
-        <hr class="short-hr is-black" />
+        <hr class="short-hr" />
       </div>
 
       <div class="column">
