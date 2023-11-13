@@ -10,9 +10,6 @@
 - name: Alibaba PouchContainer
   logo: pouchcontainer.png
   url: https://pouchcontainer.io/#/
-- name: Eliot
-  logo: eliot.png
-  url: https://docs.eliot.run/
 - name: Balena
   logo: balena.svg
   url: https://github.com/balena-os/balena-engine
