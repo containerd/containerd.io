@@ -8,7 +8,13 @@ The containerd site is built using the [Hugo](https://gohugo.io) static site gen
 
 In order to run the site locally, you'll need to install the version of Hugo specified using the `HUGO_VERSION` environment variable in [`netlify.toml`](netlify.toml). Instructions can be found in the [official Hugo documentation](https://gohugo.io/getting-started/installing/).
 
-Once you have the proper Hugo version installed, run:
+Once you have the proper Hugo version installed, install this package and its dependencies with:
+
+```shell
+npm install .
+```
+
+Finally, run:
 
 ```shell
 make serve
