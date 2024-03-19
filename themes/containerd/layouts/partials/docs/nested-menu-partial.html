@@ -1,0 +1,14 @@
+{{ range .context.Pages }}
+    <li class="{{ if or (in $.ancestors .) (eq $.curRelPermalink .RelPermalink) }}active{{ end }} {{ if len .Pages }}haschildren{{ end }}">
+        {{ if not (len .Pages) }}
+            <a href="{{ .RelPermalink }}">{{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}</a>
+        {{ else }}
+            <a onclick="this.parentNode.classList.contains('active') ? this.parentNode.classList.remove('active') : this.parentElement.classList.add('active')">
+                {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
+            </a>
+        {{ end }}
+        <ul>
+            {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" $.curRelPermalink "ancestors" $.ancestors "context" .) }}
+        </ul>
+    </li>
+{{ end }}
