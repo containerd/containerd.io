@@ -1,0 +1,43 @@
+{{- $currentUrl := .RelPermalink }}
+{{- $xVersion := index (findRE `v\d+\.\d+\.x` .RelPermalink) 0 }}
+
+{{- $docs := where site.RegularPages "CurrentSection.Path" (printf "%s%s" "/docs/" $xVersion) }}
+
+<style>
+    ul.nestedmenu {margin-left: 0;}
+    ul.nestedmenu li {list-style: none;}
+    ul.nestedmenu li > ul {display: none;}
+    ul.nestedmenu li > a::before {content: "•"; display: inline-block; margin-right: 0.25rem; width: 0.5rem; text-align: center;}
+    ul.nestedmenu li.haschildren > a::before {content: "›";}
+    ul.nestedmenu li.haschildren.active > a::before {transform: rotate(90deg);}
+    ul.nestedmenu li.active > ul {display: block;}
+    ul.nestedmenu li > a {color: #444444!important;}
+    ul.nestedmenu li.active > a {color: rgb(247, 44, 114)!important;}
+</style>
+
+<aside class="column is-hidden-touch is-fullheight is-hidden-mobile">
+<ul class="menu-list">
+    <li>
+    <a href="/docs" class="{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}">
+        <span class="icon"><i class="fa fa-home"></i></span> Docs Home
+    </a>
+    </li>
+
+    {{ if (strings.Contains $xVersion "v") }}
+    {{- $readmeURL := (printf "%s%s%s" "/docs/" $xVersion "/") }}
+    <li>
+        <a href="{{$readmeURL}}" class="{{ if eq .RelPermalink $readmeURL }} is-active{{ end }}">
+            <span class="icon"><i class="fa fa-info"></i></span> README
+        </a>
+    </li>
+    {{ end }}
+
+    {{ .Scratch.Set "ancestors" .Ancestors }}
+    {{ .Scratch.Set "curRelPermalink" .RelPermalink }}
+    {{ with .Site.GetPage (print "/docs/" $xVersion "/_index.md") }}
+    <ul class="nestedmenu">
+        {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" ($.Scratch.Get "curRelPermalink") "ancestors" ($.Scratch.Get "ancestors") "context" .) }}
+    </ul>
+    {{ end }}
+</ul>
+</aside>
