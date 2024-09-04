@@ -9,7 +9,7 @@ jobs:
   update-releasesmd:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Update dependencies
         id: vars
         run: |
@@ -19,7 +19,7 @@ jobs:
           sed -i'' 's, See \[api/\](api) for details.,,' content/releases.md
           sed -i'' 's,^### GRPC API,### GRPC API {#grpc},' content/releases.md
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: |
