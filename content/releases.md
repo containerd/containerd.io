@@ -146,7 +146,8 @@ of containerd for every supported version of Kubernetes.
 | 1.27               | 1.7.0+, 1.6.15+               | v1              |
 | 1.28               | 1.7.0+, 1.6.15+               | v1              |
 | 1.29               | 1.7.11+, 1.6.27+              | v1              |
-| 1.30(wip)          | 2.0(wip), 1.7.13+, 1.6.28+    | v1              |
+| 1.30               | 2.0(wip), 1.7.13+, 1.6.28+    | v1              |
+| 1.31               | 2.0(wip), 1.7.20+, 1.6.34+    | v1              |
 
 ** Note: containerd v1.6.*, and v1.7.* support CRI v1 and v1alpha2 through EOL as those releases continue to support older versions of k8s, cloud providers, and other clients using CRI v1alpha2. CRI v1alpha2 is deprecated in v1.7 and will be removed in containerd v2.0.
 
@@ -463,6 +464,7 @@ The deprecated properties in [`config.toml`](./docs/cri/config.md) are shown in 
 |`[plugins."io.containerd.grpc.v1.cri".containerd]`                    | `default_runtime`            | containerd v1.3     | containerd v2.0 ✅         | Use `default_runtime_name`                      |
 |`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*]`         | `runtime_engine`             | containerd v1.3     | containerd v2.0 ✅         | Use runtime v2                                  |
 |`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*]`         | `runtime_root`               | containerd v1.3     | containerd v2.0 ✅         | Use `options.Root`                              |
+|`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*]`         | `disable_cgroup`             | -                   | containerd v2.0 ✅         | Use [cgroup v2 delegation](https://rootlesscontaine.rs/getting-started/common/cgroup2/) |
 |`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*.options]` | `CriuPath`                   | containerd v1.7     | containerd v2.0 ✅         | Set `$PATH` to the `criu` binary                |
 |`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `auths`                      | containerd v1.3     | containerd v2.1            | Use [`ImagePullSecrets`](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/). See also [#8228](https://github.com/containerd/containerd/issues/8228). |
 |`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `configs`                    | containerd v1.5     | containerd v2.1            | Use [`config_path`](./docs/hosts.md)            |
