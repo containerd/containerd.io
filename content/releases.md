@@ -454,7 +454,7 @@ The deprecated features are shown in the following table:
   until containerd v2.1. `ctr` users have to specify `--local` too (e.g., `ctr images pull --local`). Users of CRI clients (such as Kubernetes and `crictl`) have to specify this environment variable on the containerd daemon (usually in the systemd unit).
 
 ### Deprecated config properties
-The deprecated properties in [`config.toml`](./docs/cri/config.md) are shown in the following table:
+The deprecated properties in [`config.toml`](https://github.com/containerd/containerd/blob/main/docs/cri/config.md) are shown in the following table:
 
 | Property Group                                                       | Property                     | Deprecation release | Target release for removal | Recommendation                                  |
 |----------------------------------------------------------------------|------------------------------|---------------------|----------------------------|-------------------------------------------------|
@@ -466,8 +466,8 @@ The deprecated properties in [`config.toml`](./docs/cri/config.md) are shown in 
 |`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*]`         | `disable_cgroup`             | -                   | containerd v2.0 ✅         | Use [cgroup v2 delegation](https://rootlesscontaine.rs/getting-started/common/cgroup2/) |
 |`[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.*.options]` | `CriuPath`                   | containerd v1.7     | containerd v2.0 ✅         | Set `$PATH` to the `criu` binary                |
 |`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `auths`                      | containerd v1.3     | containerd v2.1            | Use [`ImagePullSecrets`](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/). See also [#8228](https://github.com/containerd/containerd/issues/8228). |
-|`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `configs`                    | containerd v1.5     | containerd v2.1            | Use [`config_path`](./docs/hosts.md)            |
-|`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `mirrors`                    | containerd v1.5     | containerd v2.1            | Use [`config_path`](./docs/hosts.md)            |
+|`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `configs`                    | containerd v1.5     | containerd v2.1            | Use [`config_path`](https://github.com/containerd/containerd/blob/main/docs/hosts.md)            |
+|`[plugins."io.containerd.grpc.v1.cri".registry]`                      | `mirrors`                    | containerd v1.5     | containerd v2.1            | Use [`config_path`](https://github.com/containerd/containerd/blob/main/docs/hosts.md)            |
 |`[plugins."io.containerd.tracing.processor.v1.otlp"]`                 | `endpoint`, `protocol`, `insecure` | containerd v1.6.29 | containerd v2.0       | Use [OTLP environment variables](https://opentelemetry.io/docs/specs/otel/protocol/exporter/), e.g. OTEL_EXPORTER_OTLP_TRACES_ENDPOINT, OTEL_EXPORTER_OTLP_PROTOCOL, OTEL_SDK_DISABLED    |
 |`[plugins."io.containerd.internal.v1.tracing"]`                       | `service_name`, `sampling_ratio`   | containerd v1.6.29 | containerd v2.0       | Instead use [OTel environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/), e.g. OTEL_SERVICE_NAME, OTEL_TRACES_SAMPLER*  |
 
@@ -526,4 +526,4 @@ more quickly.
 | [NRI in CRI Support](https://github.com/containerd/containerd/pull/6019)               | containerd v1.7 | containerd v2.0          |
 | [gRPC Shim](https://github.com/containerd/containerd/pull/8052)                        | containerd v1.7 | containerd v2.0          |
 | [CRI Runtime Specific Snapshotter](https://github.com/containerd/containerd/pull/6899) | containerd v1.7 | containerd v2.0          |
-| [CRI Support for User Namespaces](./docs/user-namespaces/README.md)                    | containerd v1.7 | containerd v2.0          |
+| [CRI Support for User Namespaces](https://github.com/containerd/containerd/blob/main/docs/user-namespaces/README.md)                    | containerd v1.7 | containerd v2.0          |
