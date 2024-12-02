@@ -10,3 +10,8 @@ command = "make preview-build"
 
 [context.branch-deploy]
 command = "make preview-build"
+
+[[redirects]]
+from = "/bsky"
+to = "https://bsky.app/profile/did:plc:tnjzjt2e3o4w7oxyh3cedqsq/lists/3lcc4gw2asl2c"
+status = 302
