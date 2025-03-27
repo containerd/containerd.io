@@ -15,17 +15,29 @@
 clean:
 	rm -rf public resources
 
-serve:
+containerd-1.7.x:
+	git clone --branch v1.7.0 --depth 1 https://github.com/containerd/containerd.git containerd-1.7.x
+
+content/v1.7.x: containerd-1.7.x
+	cp -r containerd-1.7.x/docs content/v1.7.x
+
+containerd-1.6.x:
+	git clone --branch v1.6.19 --depth 1 https://github.com/containerd/containerd.git containerd-1.6.x
+
+content/v1.6.x: containerd-1.6.x
+	cp -r containerd-1.6.x/docs content/v1.6.x
+
+serve: content/v1.7.x content/v1.6.x
 	hugo server \
 		--buildDrafts \
 		--buildFuture \
 		--disableFastRender
 
-production-build:
+production-build: content/v1.7.x content/v1.6.x
 	hugo \
 	--minify
 
-preview-build:
+preview-build: content/v1.7.x content/v1.6.x
 	hugo \
 		--baseURL $(DEPLOY_PRIME_URL) \
 		--buildDrafts \
