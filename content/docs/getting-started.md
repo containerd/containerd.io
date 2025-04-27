@@ -4,4 +4,5 @@ short: Getting started
 weight: 2
 ---
 
-Moved to https://github.com/containerd/containerd/blob/main/docs/getting-started.md
+- [1.7.x](/v1.7.x/getting-started/)
+- [1.6.x](/v1.6.x/getting-started/)
