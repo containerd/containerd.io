@@ -8,7 +8,7 @@ Container Runtime Interface (CRI) and particpates in the development and
 implementation of CRI.
 
 The containerd project is adopting a new process to improve collaboration on
-[KEPs]((https://github.com/kubernetes/enhancements)) and other integrations
+[KEPs](https://github.com/kubernetes/enhancements) and other integrations
 between containerd and Kubernetes.
 
 ## What you need to know as a Kubernetes SIG-Node member, KEP author, or contributor?
