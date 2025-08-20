@@ -7,7 +7,12 @@ node_modules/
 # Hugo-generated assets
 public/
 resources/
+.hugo_build.lock
 
 # Link checker assets
 bin/
 tmp/
+
+# Documentation synced from other repos
+content/docs/v*
+static/docs/*
