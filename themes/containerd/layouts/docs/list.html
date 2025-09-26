@@ -1,5 +1,5 @@
 {{ define "title" }}
-containerd docs &ndash; {{ .Title }}
+containerd docs &ndash; {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
 {{ end }}
 
 {{ define "main" }}
@@ -7,19 +7,23 @@ containerd docs &ndash; {{ .Title }}
 {{- $pages   := where .Site.Pages "Section" $section }}
 
 {{ partial "hero.html" . }}
-{{ partial "docs/tabs.html" (dict "pages" $pages "currentUrl" .RelPermalink) }}
+{{ $Content := .Content }}
 
 <article class="is-{{ $section }}-article">
   <div class="container">
     <div class="columns">
-      <div class="column is-three-quarters is-full-mobile">
+      {{ partial "docs/sidebar.html" . }}
+
+      <div class="column is-two-thirds is-full-mobile">
         <div class="content">
           <div class="is-hidden-desktop">
             {{ partial "docs/dropdown.html" . }}
           </div>
     
           <section class="is-inner-content">
-            {{ .Content }}
+            <!-- remove instances of .md to fix links to other docs -->
+            {{- $content := (replaceRE `\.md` "" .Content) }}
+            {{ $content | safeHTML }}
           </section>
         </div>
       </div>
@@ -27,8 +31,8 @@ containerd docs &ndash; {{ .Title }}
       <div class="column is-hidden-touch">
         {{- if .TableOfContents }}
         <aside class="is-toc-container">
-          <p class="is-size-4 is-toc-title">
-            Table of contents
+          <p class="is-toc-title">
+            On this page
           </p>
 
           <div id="toc">
