@@ -15,17 +15,20 @@
 clean:
 	rm -rf public resources
 
-serve:
+refresh-docs:
+	./tools/refresh-docs.sh
+
+serve: refresh-docs
 	hugo server \
 		--buildDrafts \
 		--buildFuture \
 		--disableFastRender
 
-production-build:
+production-build: refresh-docs
 	hugo \
 	--minify
 
-preview-build:
+preview-build: refresh-docs
 	hugo \
 		--baseURL $(DEPLOY_PRIME_URL) \
 		--buildDrafts \
