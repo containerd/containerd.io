@@ -1,0 +1,14 @@
+name: Sync-Documentation
+
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+
+jobs:
+  update-documentationmd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update documentation
+        id: vars
+        run: make refresh-docs

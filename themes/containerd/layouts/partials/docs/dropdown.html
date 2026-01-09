@@ -1,5 +1,7 @@
 {{- $currentUrl := .RelPermalink }}
-{{- $docs       := where .Site.Pages "Section" "docs" }}
+{{- $xVersion := index (findRE `v\d+\.\d+\.x` .RelPermalink) 0 }}
+{{- $docs := where site.RegularPages "CurrentSection.Path" "like" (printf "%s%s%s" "/docs/" $xVersion ".*") }}
+
 <div class="dropdown">
   <div class="dropdown-trigger">
     <button class="button is-dark" aria-haspopup="true" aria-controls="docs-dropdown-menu">
@@ -11,10 +13,21 @@
   </div>
   <div class="dropdown-menu" id="docs-dropdown-menu" role="menu">
     <div class="dropdown-content">
+      <a class="dropdown-item{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}" href="/docs">
+        Docs Home
+      </a>
+
+      {{ if (strings.Contains $xVersion "v") }}
+      {{- $readmeURL := (printf "%s%s%s" "/docs/" $xVersion "/") }}
+      <a href="{{$readmeURL}}" class="dropdown-item{{ if eq .RelPermalink $readmeURL }} is-active{{ end }}">
+          README
+      </a>
+      {{ end }}
+
       {{- range $docs }}
       {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
       <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .RelPermalink }}">
-        {{ .Title }}
+        {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
       </a>
       {{- end }}
     </div>

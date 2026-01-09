@@ -2,7 +2,7 @@
   <div class="container">
     <div class="hero-body">
       <p class="title is-size-2 is-size-3 has-text-weight-bold{{ if (isset .Params "description") }} is-spaced{{ end }}">
-        {{ .Title }}
+        {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
       </p>
       {{- with .Params.description }}
       <p class="subtitle is-size-4 is-size-5-mobile">

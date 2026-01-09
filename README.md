@@ -44,15 +44,13 @@ You can also access the deploy preview for a pull request by clicking **Show all
 
 ## Contributing to the documentation
 
-All of containerd's documentation is written in [GitHub-flavored Markdown](https://github.github.com/gfm/) and contained in the [`content/docs`](content/docs) folder.
+The source of truth for containerd's documentation is the [`docs folder`](https://github.com/containerd/containerd/tree/main/docs) in the containerd/containerd repo. Documentation is syncronized to this repo daily using the [Sync-Documentation](/.github/workflows/sync-documentation.yml) workflow.
 
 ### Adding new docs
 
-To create a new doc, add a Markdown file to `content/docs`. The name of the file will determine its URL. This doc, for example, would be available at `https://containerd.io/docs/client-libraries`:
+All of containerd's documentation is written in [GitHub-flavored Markdown](https://github.github.com/gfm/). To create a new doc, add a Markdown file in the [`docs folder`](https://github.com/containerd/containerd/tree/main/docs) in the containerd/containerd repo, and it will automatically be cloned into this repo. **DO NOT WRITE DOCUMENTATION DIRECTLY TO THIS REPO -- IT WILL BE DELETED BY THE SYNC-DOCUMENTATION WORKFLOW.**
 
-```shell
-touch content/docs/client-libraries.md
-```
+The name, path, and release branch of the file in the containerd/containerd repo will determine its URL on this site. For example, a document committed to `https://github.com/containerd/containerd/blob/release/1.7/docs/NRI.md` would be available at `https://containerd.io/docs/v1.7.x/nri/`.
 
 Once you've added the doc you'll need to add the following page metadata at the top, as YAML:
 
