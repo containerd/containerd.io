@@ -19,12 +19,13 @@
 # 3. copy README to content/docs/v${MAJOR}.${MINOR}.x/_index.md
 # 4. create an _index.md file in each subdirectory, setting the md title to the directory name, for the nested menu
 # 5. clean up
+git submodule sync ;
 git submodule init ;
 git submodule update --recursive --remote ;
 
 git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | \
 while read -r SUBMODULE ; do \
-    X_VER=`echo $SUBMODULE | sed "s/^containerd//"` ; \
+    X_VER=`echo $SUBMODULE | sed "s/^containerd-//"` ; \
     rm -rf content/docs/v$X_VER.x ; \
     mkdir -p content/docs/v$X_VER.x/docs ; \
     cp -r $SUBMODULE/docs content/docs/v$X_VER.x/ ; \
