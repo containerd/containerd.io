@@ -17,6 +17,16 @@ to = "https://bsky.app/profile/did:plc:tnjzjt2e3o4w7oxyh3cedqsq/lists/3lcc4gw2as
 status = 302
 
 [[redirects]]
+from = "/docs/getting-started/"
+to = "/docs/latest/getting-started/"
+status = 302
+
+[[redirects]]
+from = "/docs/architecture/"
+to = "/docs/latest/"
+status = 302
+
+[[redirects]]
 from = "/docs/latest/*"
 to = "/docs/2.2/:splat"
 status = 302
