@@ -22,13 +22,24 @@ containerd docs &ndash; {{ partial "docs/title.html" . }}
     
           <section class="is-inner-content">
             {{- $content := .Content }}
-            {{ $content | safeHTML }}
+            {{ if .Content }}
+              {{ $content | safeHTML }}
+            {{ else }}
+              <h2>Navigation</h2>
+              <ul>
+              {{ range .Pages }}
+                {{- if not (in site.Data.tree.hidden (cond (eq .Title "") .File.BaseFileName .Title)) -}}
+                <li><a href="{{ .RelPermalink }}">{{ partial "docs/title.html" . }}</a></li>
+                {{- end -}}
+              {{ end }}
+              </ul>
+            {{ end }}
           </section>
         </div>
       </div>
 
       <div class="column is-hidden-touch">
-        {{- if .TableOfContents }}
+        {{- if and .Content .TableOfContents }}
         <aside class="is-toc-container">
           <p class="is-toc-title">
             On this page
