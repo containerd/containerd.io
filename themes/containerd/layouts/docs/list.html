@@ -21,8 +21,7 @@ containerd docs &ndash; {{ partial "docs/title.html" . }}
           </div>
     
           <section class="is-inner-content">
-            <!-- remove instances of .md to fix links to other docs -->
-            {{- $content := (replaceRE `\.md` "" .Content) }}
+            {{- $content := .Content }}
             {{ $content | safeHTML }}
           </section>
         </div>
