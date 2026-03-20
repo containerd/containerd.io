@@ -24,7 +24,7 @@ git submodule update --recursive --remote ;
 
 git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | \
 while read -r SUBMODULE ; do \
-    X_VER=`echo $SUBMODULE | tr -d "containerd"` ; \
+    X_VER=`echo $SUBMODULE | sed "s/^containerd//"` ; \
     rm -rf content/docs/v$X_VER.x ; \
     mkdir -p content/docs/v$X_VER.x/docs ; \
     cp -r $SUBMODULE/docs content/docs/v$X_VER.x/ ; \

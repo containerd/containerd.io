@@ -1,5 +1,5 @@
 {{- $currentUrl := .RelPermalink }}
-{{- $xVersion := index (findRE `v\d+\.\d+\.x` .RelPermalink) 0 }}
+{{- $xVersion := index (findRE `v[\w\.]+\.x` .RelPermalink) 0 }}
 {{- $docs := where site.RegularPages "CurrentSection.Path" "like" (printf "%s%s%s" "/docs/" $xVersion ".*") }}
 
 <div class="dropdown">
