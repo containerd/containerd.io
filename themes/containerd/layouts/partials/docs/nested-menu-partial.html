@@ -7,7 +7,7 @@
         {{ if not (len .Pages) }}
             <a href="{{ .RelPermalink }}">{{- $title -}}</a>
         {{ else }}
-            <a onclick="this.parentNode.classList.contains('active') ? this.parentNode.classList.remove('active') : this.parentElement.classList.add('active')">
+            <a class="nestedmenu-toggle">
                 {{- $title -}}
             </a>
         {{ end }}

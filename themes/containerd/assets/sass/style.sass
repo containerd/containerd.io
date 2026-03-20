@@ -243,3 +243,26 @@ hr.short-hr
 
   a
     margin-bottom: .5rem
+
+ul.nestedmenu
+  margin-left: 0
+  li
+    list-style: none
+    > ul
+      display: none
+    > a::before
+      content: "•"
+      display: inline-block
+      margin-right: 0.25rem
+      width: 0.5rem
+      text-align: center
+    &.haschildren > a::before
+      content: "›"
+    &.haschildren.active > a::before
+      transform: rotate(90deg)
+    &.active > ul
+      display: block
+    > a
+      color: #444444 !important
+    &.active > a
+      color: rgb(247, 44, 114) !important
