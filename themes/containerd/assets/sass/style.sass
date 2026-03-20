@@ -250,19 +250,22 @@ ul.nestedmenu
     list-style: none
     > ul
       display: none
-    > a::before
-      content: "•"
-      display: inline-block
-      margin-right: 0.25rem
-      width: 0.5rem
-      text-align: center
+    > a
+      display: flex
+      align-items: flex-start
+      color: #444444 !important
+      &::before
+        content: "•"
+        display: inline-block
+        margin-right: 0.25rem
+        width: 0.5rem
+        text-align: center
+        flex-shrink: 0
     &.haschildren > a::before
       content: "›"
     &.haschildren.active > a::before
       transform: rotate(90deg)
     &.active > ul
       display: block
-    > a
-      color: #444444 !important
     &.active > a
       color: rgb(247, 44, 114) !important
