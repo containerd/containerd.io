@@ -38,7 +38,8 @@
 
     {{ .Scratch.Set "ancestors" .Ancestors }}
     {{ .Scratch.Set "curRelPermalink" .RelPermalink }}
-    {{ with .Site.GetPage (print "/docs/" $xVersion "/_index.md") }}
+    {{- $indexPath := cond (eq $xVersion "") "/docs/_index.md" (print "/docs/" $xVersion "/_index.md") -}}
+    {{ with .Site.GetPage $indexPath }}
     <ul class="nestedmenu">
         {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" ($.Scratch.Get "curRelPermalink") "ancestors" ($.Scratch.Get "ancestors") "context" .) }}
     </ul>

@@ -29,10 +29,20 @@
       {{ end }}
 
       {{- range $docs }}
+      {{- $key := cond (eq .Title "") .File.BaseFileName .Title -}}
+      {{- $isHidden := in site.Data.tree.hidden $key -}}
+      {{- $pagePath := .RelPermalink -}}
+      {{- range site.Data.tree.hidden -}}
+          {{- if in $pagePath (printf "/%s/" .) -}}
+              {{- $isHidden = true -}}
+          {{- end -}}
+      {{- end -}}
+      {{- if not $isHidden -}}
       {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
       <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .RelPermalink }}">
-        {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
+        {{ partial "docs/title.html" . }}
       </a>
+      {{- end -}}
       {{- end }}
     </div>
   </div>

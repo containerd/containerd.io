@@ -1,6 +1,6 @@
 {{ define "title" }}
 {{- $title := .Title }}
-containerd docs &ndash; {{ cond (eq .Title "") (.File.BaseFileName | humanize | title) .Title }}
+containerd docs &ndash; {{ partial "docs/title.html" . }}
 {{ end }}
 
 {{ define "main" }}
