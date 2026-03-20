@@ -29,12 +29,12 @@ while read -r SUBMODULE ; do \
     rm -rf content/docs/$X_VER ; \
     mkdir -p content/docs/$X_VER ; \
     cp -ar $SUBMODULE/docs/. content/docs/$X_VER/ ; \
-    rm -rf content/docs/$X_VER/historical ; \
+    find content/docs/$X_VER/historical -name "*.md" -delete ; \
     # create titled _index.md files in all subdirs so that hugo sees them as "sections" --
     # this is required for nested-menu-partial to behave correctly
-    find content/docs/$X_VER -type d -execdir bash -c 'name=$0;printf "%s\nnav_title: ${name##*/}\n%s\n" "---" "---" > "$name/_index.md";' '{}' \; ; \
+    find content/docs/$X_VER -type d ! -name "historical" ! -path "*/historical/*" -execdir bash -c 'name=$0;printf "%s\nnav_title: ${name##*/}\n%s\n" "---" "---" > "$name/_index.md";' '{}' \; ; \
     # copy README into $X_VER/_index.md with a title added
-    printf '%s\nnav_title: README\n%s\n%s\n%s\n' "---" "---" "$(cat $SUBMODULE/README.md | sed 's|](docs/|](|g')" > content/docs/$X_VER/_index.md ; \
+    printf '%s\nnav_title: README\n%s\n%s\n%s\n' "---" "---" "$(cat $SUBMODULE/README.md | sed -e 's|](docs/|](|g' -e 's|](\./docs/|](|g')" > content/docs/$X_VER/_index.md ; \
     # copy images to static/ since they can't be read from content/
     rsync --files-from <(find content/docs/$X_VER -type f -exec file --mime-type {} \+ | awk -F: '{if ($2 ~/image\//) print $1}') . "static/" ; \
 done ;
