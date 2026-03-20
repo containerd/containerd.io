@@ -29,6 +29,7 @@ while read -r SUBMODULE ; do \
     rm -rf content/docs/v$X_VER.x ; \
     mkdir -p content/docs/v$X_VER.x/docs ; \
     cp -r $SUBMODULE/docs content/docs/v$X_VER.x/ ; \
+    rm -rf content/docs/v.$X_VER.x/historical ; \
     # create titled _index.md files in all subdirs so that hugo sees them as "sections" --
     # this is required for nested-menu-partial to behave correctly
     find content/docs/v$X_VER.x -type d -execdir bash -c 'name=$0;printf "%s\ntitle: ${name##*/}\n%s\n" "---" "---" > "$name/_index.md";' '{}' \; ; \
