@@ -11,9 +11,11 @@
                 {{- $title -}}
             </a>
         {{ end }}
+        {{ if len .Pages }}
         <ul>
             {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" $.curRelPermalink "ancestors" $.ancestors "context" .) }}
         </ul>
+        {{ end }}
     </li>
     {{- end -}}
     {{- end -}}
