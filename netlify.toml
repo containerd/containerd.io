@@ -18,5 +18,5 @@ status = 302
 
 [[redirects]]
 from = "/docs/latest/*"
-to = "/docs/v2.2.x/:splat"
+to = "/docs/2.2/:splat"
 status = 302

@@ -14,5 +14,5 @@ bin/
 tmp/
 
 # Documentation synced from other repos
-content/docs/v*
 static/docs/*
+content/docs/*/
