@@ -15,3 +15,8 @@ command = "make preview-build"
 from = "/bsky"
 to = "https://bsky.app/profile/did:plc:tnjzjt2e3o4w7oxyh3cedqsq/lists/3lcc4gw2asl2c"
 status = 302
+
+[[redirects]]
+from = "/docs/latest/*"
+to = "/docs/v2.2.x/:splat"
+status = 302
