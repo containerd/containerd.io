@@ -6,6 +6,7 @@
 {{- end }}
 {{- $docs := where site.RegularPages "CurrentSection.Path" "like" (printf "%s%s%s" "/docs/" $xVersion ".*") }}
 
+<div class="buttons mb-4">
 <div class="dropdown">
   <div class="dropdown-trigger">
     <button class="button is-dark" aria-haspopup="true" aria-controls="docs-dropdown-menu">
@@ -49,8 +50,8 @@
 </div>
 
 {{- if .TableOfContents }}
-<div class="dropdown">
-  <div class="drodown-trigger">
+<div class="dropdown ml-2">
+  <div class="dropdown-trigger">
     <button class="button is-light">
       <span>
         Contents
@@ -67,5 +68,6 @@
   </div>
 </div>
 {{- end }}
+</div>
 
 <hr>
