@@ -4,7 +4,8 @@
 {{- if gt (len $parts) 1 }}
   {{- $xVersion = index $parts 1 }}
 {{- end }}
-{{- $docs := where site.RegularPages "CurrentSection.Path" "like" (printf "%s%s%s" "/docs/" $xVersion ".*") }}
+{{- $matchPath := cond (eq $xVersion "") "^/docs/.*" (printf "^/docs/%s/.*" $xVersion) }}
+{{- $docs := where site.RegularPages "RelPermalink" "like" $matchPath }}
 
 <div class="buttons mb-4">
 <div class="dropdown">
@@ -41,7 +42,14 @@
       {{- if not $isHidden -}}
       {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
       <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .RelPermalink }}">
-        {{ partial "docs/title.html" . }}
+        {{- $itemTitle := partial "docs/title.html" . -}}
+        {{- $parentDir := .CurrentSection -}}
+        {{- $versionRoot := cond (eq $xVersion "") "/docs/" (printf "/docs/%s/" $xVersion) -}}
+        {{- if and $parentDir (ne $parentDir.RelPermalink $versionRoot) -}}
+            {{- $parentTitle := partial "docs/title.html" $parentDir -}}
+            {{- $itemTitle = printf "%s: %s" $parentTitle $itemTitle -}}
+        {{- end -}}
+        {{ $itemTitle }}
       </a>
       {{- end -}}
       {{- end }}

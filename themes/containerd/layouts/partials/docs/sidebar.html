@@ -5,8 +5,6 @@
   {{- $xVersion = index $parts 1 }}
 {{- end }}
 
-{{- $docs := where site.RegularPages "CurrentSection.Path" (printf "%s%s" "/docs/" $xVersion) }}
-
 
 <aside class="column is-hidden-touch is-fullheight is-hidden-mobile">
 <ul class="menu-list">
