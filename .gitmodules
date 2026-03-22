@@ -1,0 +1,16 @@
+[submodule "containerd1.7"]
+	path = containerd-1.7
+	url = https://github.com/containerd/containerd.git
+	branch = release/1.7
+[submodule "containerd2.1"]
+	path = containerd-2.1
+	url = https://github.com/containerd/containerd.git
+	branch = release/2.1
+[submodule "containerd2.2"]
+	path = containerd-2.2
+	url = https://github.com/containerd/containerd.git
+	branch = release/2.2
+[submodule "containerdmain"]
+	path = containerd-main
+	url = https://github.com/containerd/containerd.git
+	branch = main

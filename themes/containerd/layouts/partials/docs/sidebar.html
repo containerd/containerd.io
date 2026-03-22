@@ -1,0 +1,35 @@
+{{- $currentUrl := .RelPermalink }}
+{{- $parts := split (trim .RelPermalink "/") "/" }}
+{{- $xVersion := "" }}
+{{- if gt (len $parts) 1 }}
+  {{- $xVersion = index $parts 1 }}
+{{- end }}
+
+
+<aside class="column is-hidden-touch is-fullheight is-hidden-mobile">
+<ul class="menu-list">
+    <li>
+    <a href="/docs" class="{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}">
+        <span class="icon"><i class="fa fa-home"></i></span> Docs Home
+    </a>
+    </li>
+
+    {{ if ne $xVersion "" }}
+    {{- $readmeURL := (printf "%s%s%s" "/docs/" $xVersion "/") }}
+    <li>
+        <a href="{{$readmeURL}}" class="{{ if eq .RelPermalink $readmeURL }} is-active{{ end }}">
+            <span class="icon"><i class="fa fa-info"></i></span> README
+        </a>
+    </li>
+    {{ end }}
+
+    {{ .Scratch.Set "ancestors" .Ancestors }}
+    {{ .Scratch.Set "curRelPermalink" .RelPermalink }}
+    {{- $indexPath := cond (eq $xVersion "") "/docs/_index.md" (print "/docs/" $xVersion "/_index.md") -}}
+    {{ with .Site.GetPage $indexPath }}
+    <ul class="nestedmenu">
+        {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" ($.Scratch.Get "curRelPermalink") "ancestors" ($.Scratch.Get "ancestors") "context" .) }}
+    </ul>
+    {{ end }}
+</ul>
+</aside>

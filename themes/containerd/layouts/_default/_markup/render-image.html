@@ -1,0 +1,13 @@
+{{- $src := .Destination -}}
+{{- $parsed := urls.Parse $src -}}
+{{- if not $parsed.IsAbs -}}
+  {{- if not (hasPrefix $src "/") -}}
+    {{- /* Scope strictly to the auto-generated docs/ repository imports */ -}}
+    {{- if eq .Page.Section "docs" -}}
+      {{- if not (strings.HasSuffix .Page.File.LogicalName "_index.md") -}}
+        {{- $src = print "../" $src -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }} />

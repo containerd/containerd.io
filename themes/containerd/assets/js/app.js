@@ -111,4 +111,11 @@ $(function() {
   tableOfContents();
   addAnchors();
   arrowUp();
+  nestedMenuToggle();
 });
+
+function nestedMenuToggle() {
+  $('.nestedmenu-toggle').click(function() {
+    $(this).parent().toggleClass('active');
+  });
+}

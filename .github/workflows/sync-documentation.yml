@@ -1,0 +1,28 @@
+name: Sync-Documentation
+
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+  workflow_dispatch:
+
+
+jobs:
+  update-documentationmd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update documentation
+        run: make refresh-docs
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            keep releases.md in sync with containerd/containerd
+
+            Signed-off-by: Samuel Karp <samuelkarp+automated@google.com>
+          committer: Samuel Karp <samuelkarp@google.com>
+          author: Samuel Karp <samuelkarp+automated@google.com>
+          title: Automated documentation sync update
+          body: This is an auto-generated PR to sync updates in the main containerd project's documentation.
+          branch: docs-updates

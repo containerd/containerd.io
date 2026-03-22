@@ -1,0 +1,33 @@
+# Provide explicit overrides for how file and directory nodes
+# render in the left navigation menu.
+renames:
+  man: "Manual pages"
+  containerd-config.8: "containerd-config(8)"
+  containerd-config.toml.5: "containerd-config.toml(5)"
+  getting-started: "Getting Started"
+  content-flow: "Content Flow"
+  client-opts: "Client Opts"
+  containerd-2.0: "containerd 2.0"
+  image-verification: "Image Verification"
+  managed-opt: "Managed Opt"
+  cri: "CRI"
+  api: "API"
+  os: "OS"
+  nri: "NRI"
+  crictl: "crictl"
+  erofs: "erofs"
+  containerd: "containerd"
+  runc: "runc"
+  PLUGINS: "Plugins"
+
+# Globally applied regex replacements acting across auto-generated title strings
+# e.g., scanning multi-word strings and ensuring brand acronyms are fixed contextually
+regex_renames:
+  '(?i)\bcri\b': "CRI"
+  '(?i)\bapi\b': "API"
+  '(?i)\bos\b': "OS"
+  '(?i)\bcontainerd\b': "containerd"
+  '(?i)\brunc\b': "runc"
+  '(?i)\bnri\b': "NRI"
+  '(?i)\bcrictl\b': "crictl"
+  '(?i)\berofs\b': "erofs"

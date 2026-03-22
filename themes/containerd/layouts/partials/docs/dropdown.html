@@ -1,5 +1,13 @@
 {{- $currentUrl := .RelPermalink }}
-{{- $docs       := where .Site.Pages "Section" "docs" }}
+{{- $parts := split (trim .RelPermalink "/") "/" }}
+{{- $xVersion := "" }}
+{{- if gt (len $parts) 1 }}
+  {{- $xVersion = index $parts 1 }}
+{{- end }}
+{{- $matchPath := cond (eq $xVersion "") "^/docs/.*" (printf "^/docs/%s/.*" $xVersion) }}
+{{- $docs := where site.RegularPages "RelPermalink" "like" $matchPath }}
+
+<div class="buttons mb-4">
 <div class="dropdown">
   <div class="dropdown-trigger">
     <button class="button is-dark" aria-haspopup="true" aria-controls="docs-dropdown-menu">
@@ -11,19 +19,47 @@
   </div>
   <div class="dropdown-menu" id="docs-dropdown-menu" role="menu">
     <div class="dropdown-content">
+      <a class="dropdown-item{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}" href="/docs">
+        Docs Home
+      </a>
+
+      {{ if ne $xVersion "" }}
+      {{- $readmeURL := (printf "%s%s%s" "/docs/" $xVersion "/") }}
+      <a href="{{$readmeURL}}" class="dropdown-item{{ if eq .RelPermalink $readmeURL }} is-active{{ end }}">
+          README
+      </a>
+      {{ end }}
+
       {{- range $docs }}
+      {{- $key := cond (eq .Title "") .File.BaseFileName .Title -}}
+      {{- $isHidden := in site.Data.tree.hidden $key -}}
+      {{- $pagePath := .RelPermalink -}}
+      {{- range site.Data.tree.hidden -}}
+          {{- if in $pagePath (printf "/%s/" .) -}}
+              {{- $isHidden = true -}}
+          {{- end -}}
+      {{- end -}}
+      {{- if not $isHidden -}}
       {{- $isCurrentPage := eq $currentUrl .RelPermalink }}
       <a class="dropdown-item{{ if $isCurrentPage }} is-active{{ end }}" href="{{ .RelPermalink }}">
-        {{ .Title }}
+        {{- $itemTitle := partial "docs/title.html" . -}}
+        {{- $parentDir := .CurrentSection -}}
+        {{- $versionRoot := cond (eq $xVersion "") "/docs/" (printf "/docs/%s/" $xVersion) -}}
+        {{- if and $parentDir (ne $parentDir.RelPermalink $versionRoot) -}}
+            {{- $parentTitle := partial "docs/title.html" $parentDir -}}
+            {{- $itemTitle = printf "%s: %s" $parentTitle $itemTitle -}}
+        {{- end -}}
+        {{ $itemTitle }}
       </a>
+      {{- end -}}
       {{- end }}
     </div>
   </div>
 </div>
 
 {{- if .TableOfContents }}
-<div class="dropdown">
-  <div class="drodown-trigger">
+<div class="dropdown ml-2">
+  <div class="dropdown-trigger">
     <button class="button is-light">
       <span>
         Contents
@@ -40,5 +76,6 @@
   </div>
 </div>
 {{- end }}
+</div>
 
 <hr>
