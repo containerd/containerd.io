@@ -1,0 +1,22 @@
+{{ range .context.Pages }}
+    {{- if ne .Params.nav_title "README" -}}
+    {{- $key := cond (eq .Title "") .File.BaseFileName .Title -}}
+    {{- if not (in site.Data.tree.hidden $key) -}}
+        {{- $title := partial "docs/title.html" . -}}
+    <li class="{{ if or (in $.ancestors .) (eq $.curRelPermalink .RelPermalink) }}active{{ end }} {{ if len .Pages }}haschildren{{ end }}">
+        {{ if not (len .Pages) }}
+            <a href="{{ .RelPermalink }}">{{- $title -}}</a>
+        {{ else }}
+            <a class="nestedmenu-toggle">
+                {{- $title -}}
+            </a>
+        {{ end }}
+        {{ if len .Pages }}
+        <ul>
+            {{ partial "docs/nested-menu-partial.html" (dict "curRelPermalink" $.curRelPermalink "ancestors" $.ancestors "context" .) }}
+        </ul>
+        {{ end }}
+    </li>
+    {{- end -}}
+    {{- end -}}
+{{ end }}

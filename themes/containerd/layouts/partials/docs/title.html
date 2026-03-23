@@ -1,0 +1,21 @@
+{{- $key := .Title -}}
+{{- if .Params.nav_title -}}
+    {{- $key = .Params.nav_title -}}
+{{- else if and (eq $key "") .File -}}
+    {{- $key = .File.BaseFileName -}}
+{{- end -}}
+{{- $title := "" -}}
+{{- if isset site.Data.tree.renames $key -}}
+    {{- $title = index site.Data.tree.renames $key -}}
+{{- else -}}
+    {{- $title = $key -}}
+    {{- if eq $title (lower $title) -}}
+        {{- $title = $title | humanize | title -}}
+    {{- end -}}
+    {{- if site.Data.tree.regex_renames -}}
+        {{- range $pattern, $replacement := site.Data.tree.regex_renames -}}
+            {{- $title = replaceRE $pattern $replacement $title -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- return $title -}}

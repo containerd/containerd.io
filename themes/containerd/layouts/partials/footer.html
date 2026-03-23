@@ -1,5 +1,4 @@
 {{- $logo          := "img/logos/footer-logo.png" | relURL }}
-{{- $docs          := where .Site.Pages "Section" "docs" }}
 {{- $year          := now.Year }}
 {{- $twitterHandle := .Site.Params.twitterHandle }}
 {{- $twitterUrl    := printf "https://twitter.com/@%s" $twitterHandle }}
@@ -22,13 +21,31 @@
         <hr class="hr has-background-grey">
 
         <ul>
-          {{- range $docs }}
           <li>
-            <a href="{{ .RelPermalink }}">
-              {{ .Title }}
+            <a href="/docs">
+              Docs Home
             </a>
           </li>
-          {{- end }}
+          <li>
+            <a href="/docs/main/">
+              main
+            </a>
+          </li>
+          <li>
+            <a href="/docs/2.2/">
+              2.2.x
+            </a>
+          </li>
+          <li>
+            <a href="/docs/2.1/">
+              2.1.x
+            </a>
+          </li>
+          <li>
+            <a href="/docs/1.7/">
+              1.7.x
+            </a>
+          </li>
         </ul>
       </div>
 

@@ -1,6 +1,7 @@
 {{- $isHome        := .IsHome }}
 {{- $isDoc         := eq .Section "docs" }}
-{{- $title         := cond $isHome .Site.Title (printf "%s &ndash; %s" .Site.Title .Title) }}
+{{- $formattedTitle := partial "docs/title.html" . }}
+{{- $title         := cond $isHome .Site.Title (printf "%s &ndash; %s" .Site.Title $formattedTitle) }}
 {{- $description   := cond $isHome .Site.Params.description .Params.description }}
 {{- $pageType      := cond $isHome "website" "article" }}
 {{- $imageUrl      := "img/logos/horizontal/color/containerd-horizontal-color.png" | absURL }}
