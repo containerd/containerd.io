@@ -8,6 +8,25 @@
 {{- $docs := where site.RegularPages "RelPermalink" "like" $matchPath }}
 
 <div class="buttons mb-4">
+  <div class="dropdown">
+    <div class="dropdown-trigger">
+      <button class="button is-dark" aria-haspopup="true" aria-controls="version-dropdown-menu">
+        <span>Version: {{ if eq $xVersion "main" }}main{{ else }}{{ $xVersion }}{{ end }}</span>
+        <span class="icon is-small">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+    <div class="dropdown-menu" id="version-dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        {{- range .Site.Params.versions.all }}
+        <a class="dropdown-item{{ if eq . $xVersion }} is-active{{ end }}" href="/docs/{{ . }}/">
+          {{ if eq . "main" }}main{{ else }}{{ . }}{{ end }}
+        </a>
+        {{- end }}
+      </div>
+    </div>
+  </div>
 <div class="dropdown">
   <div class="dropdown-trigger">
     <button class="button is-dark" aria-haspopup="true" aria-controls="docs-dropdown-menu">
@@ -19,9 +38,6 @@
   </div>
   <div class="dropdown-menu" id="docs-dropdown-menu" role="menu">
     <div class="dropdown-content">
-      <a class="dropdown-item{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}" href="/docs">
-        Docs Home
-      </a>
 
       {{ if ne $xVersion "" }}
       {{- $readmeURL := (printf "%s%s%s" "/docs/" $xVersion "/") }}

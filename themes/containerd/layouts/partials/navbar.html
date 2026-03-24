@@ -33,9 +33,18 @@
           Downloads
         </a>
 
-        <a class="navbar-item has-text-weight-bold" href="/docs">
-          Docs
-        </a>
+        <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold">
+          <a class="navbar-link" href="/docs/{{ .Site.Params.versions.latestdir }}/">
+            Docs
+          </a>
+          <div class="navbar-dropdown">
+            {{- range .Site.Params.versions.all }}
+            <a class="navbar-item" href="/docs/{{ . }}/">
+              {{ . }}
+            </a>
+            {{- end }}
+          </div>
+        </div>
 
         <div class="navbar-item is-hoverable has-dropdown has-text-weight-bold">
           <div class="navbar-link">

@@ -9,9 +9,16 @@
 <aside class="column is-hidden-touch is-fullheight is-hidden-mobile">
 <ul class="menu-list">
     <li>
-    <a href="/docs" class="{{ if eq .RelPermalink `/docs/` }} is-active{{ end }}">
-        <span class="icon"><i class="fa fa-home"></i></span> Docs Home
-    </a>
+      <div class="select is-fullwidth mb-3">
+        <select onchange="window.location.href=this.value">
+          {{ $v := $xVersion }}
+          {{- range .Site.Params.versions.all }}
+          <option value="/docs/{{ . }}/" {{ if eq . $v }}selected{{ end }}>
+            Version: {{ if eq . "main" }}main{{ else }}{{ . }}{{ end }}
+          </option>
+          {{- end }}
+        </select>
+      </div>
     </li>
 
     {{ if ne $xVersion "" }}
