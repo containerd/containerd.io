@@ -11,18 +11,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Record submodule state
+        run: ./tools/check-submodule-docs.sh record > /tmp/old_submodules.txt
       - name: Update documentation
         run: make refresh-docs
+      - name: Check for documentation changes
+        id: verify_changes
+        run: |
+          if ./tools/check-submodule-docs.sh check /tmp/old_submodules.txt /tmp/pr_body.txt; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            {
+              echo 'pr_body<<EOF'
+              echo "This is an auto-generated PR to sync updates in the main containerd project's documentation."
+              echo ''
+              echo '### Relevant changes detected:'
+              cat /tmp/pr_body.txt
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
       - name: Create Pull Request
+        if: steps.verify_changes.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: |
-            keep releases.md in sync with containerd/containerd
+            keep documentation in sync with containerd/containerd
 
             Signed-off-by: Samuel Karp <samuelkarp+automated@google.com>
           committer: Samuel Karp <samuelkarp@google.com>
           author: Samuel Karp <samuelkarp+automated@google.com>
           title: Automated documentation sync update
-          body: This is an auto-generated PR to sync updates in the main containerd project's documentation.
+          body: ${{ steps.verify_changes.outputs.pr_body }}
           branch: docs-updates
