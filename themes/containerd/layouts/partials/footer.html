@@ -21,31 +21,13 @@
         <hr class="hr has-background-grey">
 
         <ul>
+          {{- range .Site.Params.versions.all }}
           <li>
-            <a href="/docs">
-              Docs Home
+            <a href="/docs/{{ . }}/">
+              {{ if eq . "main" }}main{{ else }}{{ . }}.x{{ end }}
             </a>
           </li>
-          <li>
-            <a href="/docs/main/">
-              main
-            </a>
-          </li>
-          <li>
-            <a href="/docs/2.2/">
-              2.2.x
-            </a>
-          </li>
-          <li>
-            <a href="/docs/2.1/">
-              2.1.x
-            </a>
-          </li>
-          <li>
-            <a href="/docs/1.7/">
-              1.7.x
-            </a>
-          </li>
+          {{- end }}
         </ul>
       </div>
 
