@@ -21,6 +21,33 @@ containerd docs &ndash; {{ partial "docs/title.html" . }}
           </div>
     
           <section class="is-inner-content">
+            {{- $parts := split (trim .RelPermalink "/") "/" }}
+            {{- $xVersion := "" }}
+            {{- if gt (len $parts) 1 }}
+              {{- $xVersion = index $parts 1 }}
+            {{- end }}
+
+            {{- if ne $xVersion "" }}
+              {{- $branch := cond (eq $xVersion "main") "main" (printf "release/%s" $xVersion) }}
+              {{- $relPath := strings.TrimPrefix (printf "docs/%s/" $xVersion) .File.Path }}
+
+              {{- $isGenerated := false }}
+              {{- if and (hasSuffix .File.Path "_index.md") (ne $relPath "_index.md") }}
+                {{- $isGenerated = true }}
+              {{- end }}
+
+              {{- if not $isGenerated }}
+                {{- $sourcePath := cond (eq $relPath "_index.md") "README.md" (printf "docs/%s" $relPath) }}
+                {{- $editUrl := printf "https://github.com/containerd/containerd/edit/%s/%s" $branch $sourcePath }}
+
+                <div class="has-text-right mb-3">
+                  <a href="{{ $editUrl }}" target="_blank" class="is-size-6">
+                    <span class="icon is-small"><i class="fas fa-edit"></i></span> Edit this page
+                  </a>
+                </div>
+              {{- end }}
+            {{- end }}
+
             {{- $content := .Content }}
             {{ if .Content }}
               {{ $content | safeHTML }}
