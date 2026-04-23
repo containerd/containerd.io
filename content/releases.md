@@ -442,12 +442,11 @@ The daemon's configuration file, commonly located in `/etc/containerd/config.tom
 is versioned and backwards compatible.  The `version` field in the config
 file specifies the config's version.  If no version number is specified inside
 the config file then it is assumed to be a version `1` config and parsed as such.
-The latest version is `version = 2`. The `main` branch is being prepared to support
-the next config version `3`. The configuration is automatically migrated to the
-latest version on each startup, leaving the configuration file unchanged. To avoid
-the migration and optimize the daemon startup time, use `containerd config migrate`
-to output the configuration as the latest version. Version `1` is no longer deprecated
-and is supported by migration, however, it is recommended to use at least version `2`.
+The latest version is `version = 4`. The configuration is automatically migrated to
+the latest version on each startup, leaving the configuration file unchanged. To
+avoid the migration and optimize the daemon startup time, use `containerd config
+migrate` to output the configuration as the latest version. All prior versions are
+supported by migration.
 
 Migrating a configuration to the latest version will limit the prior versions
 of containerd in which the configuration can be used. It is suggested not to
@@ -461,6 +460,7 @@ each configuration version.
 | 1                     | v1.0.0                     |
 | 2                     | v1.3.0                     |
 | 3                     | v2.0.0                     |
+| 4                     | v2.3.0                     |
 
 ### Not Covered
 
