@@ -143,7 +143,7 @@ to all committers.
 | [2.0](https://github.com/containerd/containerd/releases/tag/v2.0.7)  | LTS            | November 5, 2024               | March, 2027**                  | [@samuelkarp](https://github.com/samuelkarp), [@chrishenzie](https://github.com/chrishenzie) |
 | [2.1](https://github.com/containerd/containerd/releases/tag/v2.1.0)  | Active         | May 7, 2025                    | May 5, 2026                    | @containerd/committers |
 | [2.2](https://github.com/containerd/containerd/releases/tag/v2.2.0)  | Active         | November 5, 2025               | November 6, 2026               | @containerd/committers |
-| [2.3](https://github.com/containerd/containerd/milestone/50)         | LTS (_future_) | April 27, 2026 (_tentative_)   | April 27, 2028 (_tentative_)   | @containerd/committers |
+| [2.3](https://github.com/containerd/containerd/milestone/50)         | RC (LTS)       | April 29, 2026 (_scheduled_)   | April 29, 2028 (_tentative_)   | @containerd/committers |
 
 \* Support for the 1.7 release branch was provided by @containerd/committers until March 10, 2026. Extended support through September 2026 is provided by [@samuelkarp](https://github.com/samuelkarp) and [@chrishenzie](https://github.com/chrishenzie).  This extended support is focused on usage with Kubernetes 1.32, 1.31, and 1.30 via [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).  Changes may not be accepted if they are not needed for this usage.
 
@@ -165,7 +165,8 @@ of containerd for every supported version of Kubernetes.
 | 1.32               | 2.1.0+, 2.0.1+, 1.7.24+, 1.6.36+ | v1              |
 | 1.33               | 2.1.0+, 2.0.4+, 1.7.24+, 1.6.36+ | v1              |
 | 1.34               | 2.1.3+, 2.0.6+, 1.7.28+, 1.6.39+ | v1              |
-| 1.35               | 2.2.0+, 2.1.5+, 1.7.28+  | v1              |
+| 1.35               | 2.2.0+, 2.1.5+, 1.7.28+          | v1              |
+| 1.36               | 2.3.0+, 2.2.0+                   | v1              |
 
 Deprecated containerd and kubernetes versions
 
