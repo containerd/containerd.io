@@ -17,6 +17,7 @@ The containerd project is encapsulated in a variety of GitHub repositories; see 
 ## Getting Started
 
 - [main](main/getting-started/)
+- [2.3.x](2.3/getting-started/)
 - [2.2.x](2.2/getting-started/)
 - [2.1.x](2.1/getting-started/)
 - [1.7.x](1.7/getting-started/)

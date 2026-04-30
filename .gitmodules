@@ -14,3 +14,7 @@
 	path = containerd-main
 	url = https://github.com/containerd/containerd.git
 	branch = main
+[submodule "containerd-2.3"]
+	path = containerd-2.3
+	url = https://github.com/containerd/containerd.git
+	branch = release/2.3
