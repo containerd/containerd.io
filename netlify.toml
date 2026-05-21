@@ -11,11 +11,7 @@ command = "make preview-build"
 [context.branch-deploy]
 command = "make preview-build"
 
-[[redirects]]
-from = "/bsky"
-to = "https://bsky.app/profile/did:plc:tnjzjt2e3o4w7oxyh3cedqsq/lists/3lcc4gw2asl2c"
-status = 302
-
+# Docs redirects
 [[redirects]]
 from = "/docs/getting-started/"
 to = "/docs/latest/getting-started/"
@@ -29,4 +25,16 @@ status = 302
 [[redirects]]
 from = "/docs/latest/*"
 to = "/docs/2.3/:splat"
+status = 302
+
+# Social media
+[[redirects]]
+from = "/bsky"
+to = "https://bsky.app/profile/did:plc:tnjzjt2e3o4w7oxyh3cedqsq/lists/3lcc4gw2asl2c"
+status = 302
+
+# Proposals
+[[redirects]]
+from = "/proposals/2026-release-cycle"
+to = "https://docs.google.com/document/d/1RjFMBHLluYK9byUSz1IYgumPUMEqwNPTn890tg-IlCo/edit?tab=t.0"
 status = 302
