@@ -38,3 +38,8 @@ status = 302
 from = "/proposals/2026-release-cycle"
 to = "https://docs.google.com/document/d/1RjFMBHLluYK9byUSz1IYgumPUMEqwNPTn890tg-IlCo/edit?tab=t.0"
 status = 302
+
+[[redirects]]
+from = "/proposals/nri-ga-requirements"
+to = "https://docs.google.com/document/d/1H9Tx6FgEhw_ep2eHgaV3_BZ-Zji1n_dOAD0VAD28YdE/edit?tab=t.0"
+status = 302
