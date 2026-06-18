@@ -27,6 +27,12 @@ from = "/docs/latest/*"
 to = "/docs/2.3/:splat"
 status = 302
 
+# Meetings calendar
+[[redirects]]
+from = "/meetings"
+to = "https://zoom-lfx.platform.linuxfoundation.org/meetings/containerd"
+status = 302
+
 # Social media
 [[redirects]]
 from = "/bsky"
