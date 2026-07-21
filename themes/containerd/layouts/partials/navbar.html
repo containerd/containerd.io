@@ -1,11 +1,10 @@
 {{- $isHome        := .IsHome }}
 {{- $logo          := cond $isHome ("img/logos/navbar-light-logo.png" | relURL) ("img/logos/navbar-dark-logo.png" | relURL) }}
 {{- $docs          := where .Site.Pages "Section" "docs" }}
-{{- $twitterHandle := .Site.Params.twitterHandle }}
-{{- $twitterUrl    := printf "https://twitter.com/@%s" $twitterHandle }}
 {{- $githubRepo    := .Site.Params.githubRepo }}
 {{- $githubUrl     := printf "https://github.com/%s" $githubRepo }}
 {{- $slackChannel  := .Site.Params.slackChannel }}
+{{- $blueskyUrl    := .Site.Params.blueskyUrl }}
 {{- $projectPages  := where .Site.RegularPages "Section" "" }}
 <div class="navbar is-fixed-top{{ if $isHome }} is-dark{{ else }} has-shadow{{ end }}">
   <div class="container">
@@ -71,12 +70,6 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <a class="button has-background-twitter-blue is-borderless has-text-white" href="{{ $twitterUrl }}" aria-label="Twitter">
-                <span class="icon">
-                  <i class="fab fa-twitter" aria-hidden="true"></i>
-                </span>
-              </a>
-
               <a class="button is-borderless has-background-black has-text-white" href="{{ $githubUrl }}" aria-label="GitHub">
                 <span class="icon">
                   <i class="fab fa-github" aria-hidden="true"></i>
@@ -86,6 +79,12 @@
               <a class="button has-background-slack-green is-borderless has-text-white" href="{{ $slackChannel }}" aria-label="Slack">
                 <span class="icon">
                   <i class="fab fa-slack" aria-hidden="true"></i>
+                </span>
+              </a>
+
+              <a class="button has-background-bluesky-blue is-borderless has-text-white" href="{{ $blueskyUrl }}" aria-label="Bluesky">
+                <span class="icon">
+                  <i class="fab fa-bluesky" aria-hidden="true"></i>
                 </span>
               </a>
             </p> <!-- .control -->

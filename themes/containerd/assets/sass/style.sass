@@ -16,6 +16,9 @@
 // Project-specific colors and variables
 $twitter-blue: #1da1f2
 $slack-green: #74cdb0
+$bluesky-blue: #1185fe
+$mastodon-purple: #6364ff
+$youtube-red: #ff0000
 
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
@@ -76,6 +79,15 @@ $colors: mergeColorMaps(("orange": (lighten($orange, 5%), $orange-invert)), $col
 
 .has-background-slack-green
   background-color: $slack-green
+
+.has-background-bluesky-blue
+  background-color: $bluesky-blue
+
+.has-background-mastodon-purple
+  background-color: $mastodon-purple
+
+.has-background-youtube-red
+  background-color: $youtube-red
 
 .is-inner-content
   a
