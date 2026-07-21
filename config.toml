@@ -13,9 +13,12 @@ googleAnalyticsId  = "UA-71407002-1"
 githubRepo         = "containerd/containerd"
 twitterHandle      = "containerd"
 slackChannel       = "https://slack.containerd.io/"
+blueskyUrl         = "https://bsky.app/profile/containerd.dev"
+mastodonUrl        = "https://hachyderm.io/@containerd"
+youtubeUrl         = "https://www.youtube.com/@CNCFcontainerd"
 sansSerifFont      = "Lato"
 monospaceFont      = "Fira Mono"
-fontAwesomeVersion = "5.3.1"
+fontAwesomeVersion = "7.3.0"
 js = ["tippy-3.1.1", "jquery-3.6.0", "anchor-4.1.1", "clipboard-2.0.0", "app"]
 
 [params.home]
