@@ -44,7 +44,7 @@ KEP implementation:
   triage
 * A containerd maintainer will also add a milestone indicating the targeted
   containerd minor release for the KEP (usually the next minor release in our
-  [6-month release cadence]({{< ref "releases.md#release-cadence" >}}))
+  [4-month release cadence]({{< ref "releases.md#release-cadence" >}}))
 * Use this issue for tracking the status of the KEP and for any
   containerd-specific discussion
 
