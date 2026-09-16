@@ -36,9 +36,9 @@ features = [
 ]
 
 [params.versions]
-latest = "2.3.0"
-latestdir = "2.3"
-all = ["2.3", "2.2", "2.1", "1.7", "main"]
+latest = "2.4.0"
+latestdir = "2.4"
+all = ["2.4", "2.3", "2.2", "2.1", "1.7", "main"]
 
 [[params.fonts]]
 name = "Lato"

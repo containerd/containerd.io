@@ -24,7 +24,7 @@ status = 302
 
 [[redirects]]
 from = "/docs/latest/*"
-to = "/docs/2.3/:splat"
+to = "/docs/2.4/:splat"
 status = 302
 
 # Meetings calendar
