@@ -7,9 +7,9 @@ on:
 
 jobs:
   update-releasesmd:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Update dependencies
         id: vars
         run: |
@@ -20,7 +20,7 @@ jobs:
           sed -i'' 's,^### GRPC API,### GRPC API {#grpc},' content/releases.md
           sed -i'' 's,\./docs/,https://github.com/containerd/containerd/blob/main/docs/,' content/releases.md
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: |
